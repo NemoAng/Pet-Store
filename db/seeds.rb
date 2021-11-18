@@ -11,26 +11,146 @@ require "nokogiri"
 require "open-uri"
 require "json"
 
-CAT_NUM = 1..20
-DOG_NUM = 1..30
-BIRD_NUM = 1..40
+CAT_NUM = (1..20).freeze
+DOG_NUM = (1..30).freeze
+BIRD_NUM = (1..40).freeze
 
-Cat.delete_all
-Dog.delete_all
-Bird.delete_all
+cat_api_url = "https://thatcopy.pw/catapi/rest/"
+dog_api_url = "https://dog.ceo/api/breeds/image/random"
 
+def cat_api_fetch(url)
+  cat_html = URI.open(url).read
+  JSON.parse(cat_html)
+end
 
-# # Random cat name
-# Faker::Creature::Cat.name #=> "Shadow"
+def dog_api_fetch(url)
+  dog_html = URI.open(url).read
+  JSON.parse(dog_html)
+end
 
-# # Random cat breed
-# Faker::Creature::Cat.breed #=> "British Semipi-longhair"
+# unless (false)
+#   # run if condition is false
+# end
 
-# # Random cat registry
-# Faker::Creature::Cat.registry #=> "American Cat Fanciers Association"
+unless 1_000_001.even?
+  Cat.delete_all
+  CatBreed.delete_all
 
+  CAT_NUM.each_with_index do |item, index|
+    name = Faker::Creature::Cat.unique.name
+    age = rand(1..5)
+    price = Faker::Number.decimal(l_digits: 2, r_digits: 2)
+    description = Faker::Lorem.paragraph(sentence_count: rand(5..10), supplemental: false,
+                                         random_sentences_to_add: 4)
+    image_link = cat_api_fetch(cat_api_url)["url"]
 
+    breed = Faker::Creature::Cat.breed
+    breed_description = Faker::Lorem.paragraph(sentence_count: rand(5..10), supplemental: false,
+                                               random_sentences_to_add: 4)
+
+    puts "What??: #{item}"
+    puts "Creating cat breed: #{breed}"
+    cat_breed = CatBreed.find_or_create_by(name: breed) # Breed, 1
+    cat_breed.description = breed_description
+    cat_breed.save
+
+    # if cat_breed && cat_breed.valid?
+    # next unless cat_breed && cat_breed.valid?
+    cat_breed&.valid?
+
+    puts "Creating #{index}/#{CAT_NUM.max} cats: #{name}"
+
+    cat_breed.cats.create( # Cat,,,[Breed/has_many :cats], 2
+      name:        name,
+      age:         age,
+      price:       price,
+      image_link:  image_link,
+      description: description
+    )
+  end
+end
+
+unless 1_000_001.even?
+  Dog.delete_all
+  DogBreed.delete_all
+
+  DOG_NUM.each_with_index do |item, index|
+    name = Faker::Creature::Dog.unique.name
+    age = rand(1..5)
+    price = Faker::Number.decimal(l_digits: 3, r_digits: 2)
+    description = Faker::Lorem.paragraph(sentence_count: rand(5..10), supplemental: false,
+                                         random_sentences_to_add: 4)
+    image_link = dog_api_fetch(dog_api_url)["message"]
+
+    breed = Faker::Creature::Dog.breed
+    breed_description = Faker::Lorem.paragraph(sentence_count: rand(5..10), supplemental: false,
+                                               random_sentences_to_add: 4)
+
+    puts "What??: #{item}"
+    puts "Creating dog breed: #{breed}"
+    dog_breed = DogBreed.find_or_create_by(name: breed) # Breed, 1
+    dog_breed.description = breed_description
+    dog_breed.save
+
+    # if cat_breed && cat_breed.valid?
+    # next unless cat_breed && cat_breed.valid?
+    dog_breed&.valid?
+
+    puts "Creating #{index}/#{DOG_NUM.max} dogs: #{name}"
+
+    dog_breed.dogs.create( # Cat,,,[Breed/has_many :cats], 2
+      name:        name,
+      age:         age,
+      price:       price,
+      image_link:  image_link,
+      description: description
+    )
+  end
+end
+
+unless 1_000_001.even?
+  Bird.delete_all
+  BirdBreed.delete_all
+
+  BIRD_NUM.each_with_index do |item, index|
+    name = Faker::Creature::Bird.unique.name
+    age = rand(1..5)
+    price = Faker::Number.decimal(l_digits: 2, r_digits: 2)
+    description = Faker::Lorem.paragraph(sentence_count: rand(5..10), supplemental: false,
+                                         random_sentences_to_add: 4)
+    image_link = null # bird_api_fetch(bird_api_url)["message"]
+
+    breed = Faker::Creature::Dog.breed
+    breed_description = Faker::Lorem.paragraph(sentence_count: rand(5..10), supplemental: false,
+                                               random_sentences_to_add: 4)
+
+    puts "What??: #{item}"
+    puts "Creating dog breed: #{breed}"
+    dog_breed = DogBreed.find_or_create_by(name: breed) # Breed, 1
+    dog_breed.description = breed_description
+    dog_breed.save
+
+    # if cat_breed && cat_breed.valid?
+    # next unless cat_breed && cat_breed.valid?
+    dog_breed&.valid?
+
+    puts "Creating #{index}/#{DOG_NUM.max} dogs: #{name}"
+
+    dog_breed.dogs.create( # Cat,,,[Breed/has_many :cats], 2
+      name:        name,
+      age:         age,
+      price:       price,
+      image_link:  image_link,
+      description: description
+    )
+  end
+end
+
+puts "Created #{CatBreed.count} cat breeds"
 puts "Created #{Cat.count} cats"
-puts "Created #{Dog.count} breeds"
-puts "Created #{Bird.count} countries"
 
+puts "Created #{DogBreed.count} dog breeds"
+puts "Created #{Dog.count} dogs"
+
+puts "Created #{BirdBreed.count} bird breeds"
+puts "Created #{Bird.count} birds"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_041103) do
+ActiveRecord::Schema.define(version: 2021_11_18_155619) do
 
   create_table "bird_breeds", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 2021_11_18_041103) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image_link"
+    t.string "common_family_name"
+    t.string "geo"
+    t.string "adjective"
+    t.string "emotional_adjective"
+    t.string "silly_adjective"
+    t.string "color"
   end
 
   create_table "cat_breeds", force: :cascade do |t|
@@ -42,6 +49,9 @@ ActiveRecord::Schema.define(version: 2021_11_18_041103) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image_link"
+    t.integer "cat_breed_id", null: false
+    t.index ["cat_breed_id"], name: "index_cats_on_cat_breed_id"
   end
 
   create_table "dog_breeds", force: :cascade do |t|
@@ -58,6 +68,16 @@ ActiveRecord::Schema.define(version: 2021_11_18_041103) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image_link"
+    t.string "gender"
+    t.string "coat_length"
+    t.string "size"
+    t.string "meme_phrase"
+    t.string "sound"
+    t.integer "dog_breed_id", null: false
+    t.index ["dog_breed_id"], name: "index_dogs_on_dog_breed_id"
   end
 
+  add_foreign_key "cats", "cat_breeds"
+  add_foreign_key "dogs", "dog_breeds"
 end

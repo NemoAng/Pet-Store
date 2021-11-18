@@ -1,0 +1,47 @@
+rails generate scaffold CatBreed name:string description:text
+rails generate scaffold DogBreed name:string description:text
+rails generate scaffold BirdBreed name:string description:text
+
+rails generate migration AddStatusToArticles status:string
+
+
+
+
+rails generate migration AddImageLinkToCats image_link:string
+rails generate migration AddImageLinkToDogs image_link:string
+rails generate migration AddImageLinkToBirds image_link:string
+
+rails generate migration AddStatusToArticles status:string
+rails generate migration RemoveStatusFromCats status:string
+
+name, age, price, description, image_link
+rails generate migration AddGenderToDogs gender:string
+rails generate migration AddCoatLengthToDogs coat_length:string
+rails generate migration AddSizeToDogs size:string
+
+
+rails generate migration AddGenderToDogs gender:string
+rails generate migration AddCoatLengthToDogs coat_length:string
+rails generate migration AddSizeToDogs size:string
+rails generate migration AddMemePhraseToDogs meme_phrase:string
+rails generate migration AddSoundToDogs sound:string
+
+
+rails generate migration AddFamilyNameToDogs gender:string
+rails generate migration AddCoatLengthToDogs coat_length:string
+rails generate migration AddSizeToDogs size:string
+rails generate migration AddMemePhraseToDogs meme_phrase:string
+rails generate migration AddSoundToDogs sound:string
+
+
+rails generate migration AddFamilyNameToBirds common_family_name:string
+rails generate migration AddGeoToBirds geo:string
+rails generate migration AddColorToBirds color:string
+rails generate migration AddAdjectiveToBirds adjective:string
+rails generate migration AddEmotionalAdjectiveToBirds emotional_adjective:string
+rails generate migration AddSillyAdjectiveToBirds silly_adjective:string
+
+
+rails generate migration add_references_to_cats cat_breed:references
+
+
