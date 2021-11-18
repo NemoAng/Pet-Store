@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :bird_breeds
+  resources :dog_breeds
+  resources :cat_breeds
   resources :birds
   resources :dogs
   resources :cats

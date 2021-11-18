@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cat_breed.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @cat_breed.description %>
+</p>
+
+<%= link_to 'Edit', edit_cat_breed_path(@cat_breed) %> |
+<%= link_to 'Back', cat_breeds_path %>

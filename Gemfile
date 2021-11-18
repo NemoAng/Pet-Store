@@ -54,3 +54,16 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+#######################
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
+# for reset primary key
+gem 'activerecord-reset-pk-sequence'
+
+# gem 'countries'
+# gem 'countries', require: 'countries/global'
+
+gem 'kaminari'
+
+gem 'solargraph'
