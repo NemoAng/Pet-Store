@@ -1,3 +1,11 @@
-// Place all the styles related to the Dogs controller here.
+// Place all the styles related to the Cats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.container_dog > div {
+  /* border: 1px dashed black; */
+  border-radius: 5px;
+  background-image: linear-gradient(#5ee1ff, #0083b0);
+  padding: 8px;
+  margin: 16px;
+}

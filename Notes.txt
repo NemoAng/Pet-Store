@@ -44,4 +44,61 @@ rails generate migration AddSillyAdjectiveToBirds silly_adjective:string
 
 rails generate migration add_references_to_cats cat_breed:references
 
+rails generate migration add_references_to_dogs dog_breed:references
+
+
+rails generate migration add_references_to_cats cat_breed:references
+
+rails generate migration RemoveClientFromUsers client:references
+
+rails generate migration remove_references_from_birds bird_breed:references
+rails generate migration RemoveBirdBreedFromBirds bird_breed:references
+rails generate migration drop_bird_breed  ?????
+rails generate migration drop_bird_breeds ???????
+
+class DropBirdBreeds < ActiveRecord::Migration[6.1]
+  def change
+    drop_table :bird_breeds, if_exist: true
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,33 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Birds</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Price</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
-    <% @birds.each do |bird| %>
-      <tr>
-        <td><%= bird.name %></td>
-        <td><%= bird.age %></td>
-        <td><%= bird.price %></td>
-        <td><%= bird.description %></td>
-        <td><%= link_to 'Show', bird %></td>
-        <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
-        <td><%= link_to 'Destroy', bird, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <div class="container_bird flex-container">
+      <% @birds.each do |bird| %>
+          <div class="card" style="width:300px">
+          <h2 class="card-title"><%= bird.name %></h2>
+            <img class="card-img-top" src="/bird.jpg" alt="Card image">
+            <div class="card-body">
+
+              <h3 class="card-text">Age： <%= bird.age %></h3>
+              <h3 class="card-text">Price： <%= number_to_currency(bird.price) %></h3>
+              <h3 class="card-text"><%= bird.description.truncate(57, separator: /\s/) %></h3>
+              <h3 class="card-text">Common name: <%= bird.common_family_name %></h3>
+              <h3 class="card-text">Geo: <%= bird.geo %></h3>
+              <h3 class="card-text">Adjective: <%= bird.adjective %></h3>
+              <h3 class="card-text">E Adjective: <%= bird.emotional_adjective %></h3>
+              <h3 class="card-text">S Adjective: <%= bird.silly_adjective %></h3>
+              <h3 class="card-text">Color: <%= bird.color %></h3>
+
+              <a href="#" class="btn btn-primary">Details</a>
+            </div>
+          </div>
+      <% end %>
+    </div>
   </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Bird', new_bird_path %>
