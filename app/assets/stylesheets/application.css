@@ -142,3 +142,16 @@ a.active {
   height: 50px;
   vertical-align: middle;
 }
+
+.footer {
+  height: 100px;
+  background-color: #333;
+  color: white;
+  font-size: x-large;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+

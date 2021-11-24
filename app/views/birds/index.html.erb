@@ -1,10 +1,10 @@
   <tbody>
     <%=paginate @birds, window: 2, outer_window: 3, clsss:'has-text-black' %>
     <div class="container_bird flex-container">
-      <% @birds.each do |bird| %>
+      <% @birds.each_with_index do |bird, index| %>
           <div class="card" style="width:300px">
           <h2 class="card-title"><%= bird.name %></h2>
-            <img class="card-img-top" src="/bird.jpg" alt="Card image">
+            <img class="card-img-top" src="/bird_<%= index %>.jpg" alt="Card image">
             <div class="card-body">
 
               <h3 class="card-text">Age： <%= bird.age %></h3>
@@ -16,8 +16,7 @@
               <h3 class="card-text">E Adjective: <%= bird.emotional_adjective %></h3>
               <h3 class="card-text">S Adjective: <%= bird.silly_adjective %></h3>
               <h3 class="card-text">Color: <%= bird.color %></h3>
-
-              <a href="#" class="btn btn-primary">Details</a>
+              <h3 class="card-text"><%= link_to 'Details', bird %></h3>
             </div>
           </div>
       <% end %>
