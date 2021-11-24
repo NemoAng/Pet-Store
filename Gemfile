@@ -67,3 +67,7 @@ gem 'activerecord-reset-pk-sequence'
 gem 'kaminari'
 
 gem 'solargraph'
+
+# gem install permalink
+
+gem  'permalink'

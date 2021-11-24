@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pages
   resources :dog_breeds
   resources :cat_breeds
   resources :birds
