@@ -3,7 +3,8 @@ class CatsController < ApplicationController
 
   # GET /cats or /cats.json
   def index
-    @cats = Cat.all
+    # @cats = Cat.all
+    @cats = Cat.order(:name).page_nemo_method params[:page_haha]
   end
 
   # GET /cats/1 or /cats/1.json
