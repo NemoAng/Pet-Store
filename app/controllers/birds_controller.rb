@@ -1,14 +1,14 @@
 class BirdsController < ApplicationController
-  before_action :set_bird, only: %i[ show edit update destroy ]
+  before_action :set_bird, only: %i[show edit update destroy]
 
   # GET /birds or /birds.json
   def index
-    @birds = Bird.all
+    # @birds = Bird.all
+    @birds = Bird.order(:name).page_nemo_method params[:page_haha]
   end
 
   # GET /birds/1 or /birds/1.json
-  def show
-  end
+  def show; end
 
   # GET /birds/new
   def new
@@ -16,8 +16,7 @@ class BirdsController < ApplicationController
   end
 
   # GET /birds/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /birds or /birds.json
   def create
@@ -57,13 +56,14 @@ class BirdsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bird
-      @bird = Bird.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def bird_params
-      params.require(:bird).permit(:name, :age, :price, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_bird
+    @bird = Bird.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def bird_params
+    params.require(:bird).permit(:name, :age, :price, :description)
+  end
 end

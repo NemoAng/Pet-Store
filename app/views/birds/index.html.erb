@@ -1,4 +1,5 @@
   <tbody>
+    <%=paginate @birds, window: 2, outer_window: 3, clsss:'has-text-black' %>
     <div class="container_bird flex-container">
       <% @birds.each do |bird| %>
           <div class="card" style="width:300px">
