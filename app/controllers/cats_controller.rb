@@ -1,15 +1,17 @@
 class CatsController < ApplicationController
-  before_action :set_cat, only: %i[ show edit update destroy ]
+  # before_action :set_cat, only: %i[show edit update destroy]
+  before_action :set_cat, only: %i[show]
 
   # GET /cats or /cats.json
   def index
     # @cats = Cat.all
     @cats = Cat.order(:name).page_nemo_method params[:page_haha]
+
+    # console # Trigger the web console for debugging.
   end
 
   # GET /cats/1 or /cats/1.json
-  def show
-  end
+  def show; end
 
   # GET /cats/new
   def new
@@ -17,8 +19,7 @@ class CatsController < ApplicationController
   end
 
   # GET /cats/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /cats or /cats.json
   def create
@@ -58,13 +59,14 @@ class CatsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cat
-      @cat = Cat.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def cat_params
-      params.require(:cat).permit(:name, :age, :price, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cat
+    @cat = Cat.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def cat_params
+    params.require(:cat).permit(:name, :age, :price, :description)
+  end
 end

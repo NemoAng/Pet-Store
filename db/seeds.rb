@@ -43,6 +43,7 @@ end
 unless 1_000_000.even?
   Cat.delete_all
   CatBreed.delete_all
+  Cat.reset_pk_sequence
 
   CAT_NUM.each_with_index do |item, index|
     name = Faker::Creature::Cat.unique.name
@@ -83,6 +84,7 @@ end
 unless 1_000_000.even?
   Dog.delete_all
   DogBreed.delete_all
+  Dog.reset_pk_sequence
 
   DOG_NUM.each_with_index do |item, index|
     name = Faker::Creature::Dog.unique.name
@@ -121,6 +123,7 @@ end
 unless 1_000_001.even?
   Bird.delete_all
   # BirdBreed.delete_all
+  Bird.reset_pk_sequence
 
   bird = BIRD_NUM.each do |index|
     name = Faker::Creature::Bird.unique.common_name

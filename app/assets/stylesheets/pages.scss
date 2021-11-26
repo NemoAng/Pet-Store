@@ -1,3 +1,34 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min";
+
+// @import url("https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css");
+
+// @import url("bulma.min.css");
+
+.title {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.background-about {
+  filter: blur(4px);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.supermarketnews.com/sites/supermarketnews.com/files/styles/article_featured_retina/public/petvariety_0.png?itok=Ef45NCrW");
+}
+
+.foreground-about {
+  backdrop-filter: blur(5px);
+
+  font-size: large;
+  line-height: 2rem;
+  padding: 30px;
+} /* No .wrapper needed! */
+
+.foreground-about br {
+  display: block;
+}

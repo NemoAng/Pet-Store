@@ -8,28 +8,46 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <% if false %>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <% end %>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
   </head>
 
   <header>
     <div class="topnav" id="myTopnav">
-      <a href="/welcome.html">
-        <img class="myband" src="/pets_.png" alt="Card image">
-      </a>
-      <a class=<%= controller_name == "cats" ? "active" : "whatever"%> href="/cats">Cat</a>
-      <a class=<%= controller_name == "dogs" ? "active" : "whatever"%> href="/dogs">Dog</a>
-      <a class=<%= controller_name == "birds" ? "active" : "whatever"%> href="/birds">Bird</a>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-      </a>
+      <div class="topnav-off" id="myOffset">
+        <a href="/welcome.html">
+          <img class="myband" src="/pets_.png" alt="Card image">
+        </a>
+        <a class=<%= controller_name == "cats" ? "active" : "whatever"%> href="/cats">Cat</a>
+        <a class=<%= controller_name == "dogs" ? "active" : "whatever"%> href="/dogs">Dog</a>
+        <a class=<%= controller_name == "birds" ? "active" : "whatever"%> href="/birds">Bird</a>
+        <a class=<%= controller_name == "pages" ? "active" : "whatever"%> href="/pages/about">About</a>
+
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+
     </div>
   </header>
 
   <body>
+
+    <% if false %>
+      <% cms_pages.each do |page| %>
+        <li><%= link_to page.title, permalink_path(page.permalink) %></li>
+      <% end %>
+    <% end %>
 
     <%= yield %>
 
@@ -39,14 +57,24 @@
 
 
   <script>
-  function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      var y = document.getElementById("myOffset");
+      // topnav-offset
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+
+      if (y.className === "topnav-off") {
+        y.className += " topnav-offset";
+      } else {
+        y.className = "topnav-off";
+      }
+
     }
-  }
+
   </script>
   </body>
 </html>

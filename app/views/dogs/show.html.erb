@@ -1,24 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="image">
+    <img src="<%= @dog.image_link %>" alt="dog" width="500px" height="600px">
+  </div>
+  <div class="text">
+      <h2>Name:<%= @dog.name %></h2>
+      <h3>Age:<%= @dog.age %></h3>
+      <h3>Price:<%= number_to_currency(@dog.price) %></h3>
+      <h3>Description:</h3>
+      <h3><%= @dog.description %></h3>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @dog.name %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @dog.age %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @dog.price %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @dog.description %>
-</p>
-
-<%= link_to 'Edit', edit_dog_path(@dog) %> |
 <%= link_to 'Back', dogs_path %>

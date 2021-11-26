@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :pages
+  # resources :pages
+  resources :pages, except: [:show]
+  get "/pages/:permalink" => "pages#permalink", as: "permalink"
+
+  get "/pages/:cms_pages_about" => "pages#cms_pages_about", as: "cms_pages_about"
+
   resources :dog_breeds
   resources :cat_breeds
   resources :birds

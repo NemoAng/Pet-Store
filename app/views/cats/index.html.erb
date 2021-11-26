@@ -1,7 +1,3 @@
-
-
-
-
 <tbody>
   <%=paginate @cats, window: 2, outer_window: 3, clsss:'has-text-black' %>
 
@@ -11,13 +7,14 @@
         <h2 class="card-title"><%= cat.name %></h2>
         <img class="card-img-top" src="<%= cat.image_link %>" alt="Card image"">
         <div class="card-body">
-          <h3 class="card-text">Age： <%= cat.age %></h3>
+          <h3 class="card-text---">Age： <%= cat.age %></h3>
           <h3 class="card-text">Price： <%= number_to_currency(cat.price) %></h3>
           <h3 class="card-text"><%= cat.description.truncate(57, separator: /\s/) %></h3>
-          <a href="#" class="btn btn-primary">Details</a>
+        </div>
+        <div class="detail-button-div">
+          <a class="detail-button-a" href="<%= cat_path(cat) %>" role="button">Details</a>
         </div>
       </div>
     <% end %>
   </div>
 </tbody>
-

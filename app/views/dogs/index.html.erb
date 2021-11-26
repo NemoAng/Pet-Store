@@ -1,17 +1,20 @@
   <tbody>
     <%=paginate @dogs, window: 2, outer_window: 3, clsss:'has-text-black' %>
-    <div class="container_dog flex-container">
-      <% @dogs.each do |dog| %>
+      <div class="container_dog flex-container">
+        <% @dogs.each do |dog| %>
           <div class="card" style="width:300px">
-          <h2 class="card-title"><%= dog.name %></h2>
+            <h2 class="card-title"><%= dog.name %></h2>
             <img class="card-img-top" src="<%= dog.image_link %>" alt="Card image"">
             <div class="card-body">
-              <h3 class="card-text">Age： <%= dog.age %></h3>
+              <h3 class="card-text---">Age： <%= dog.age %></h3>
               <h3 class="card-text">Price： <%= number_to_currency(dog.price) %></h3>
               <h3 class="card-text"><%= dog.description.truncate(57, separator: /\s/) %></h3>
-              <a href="#" class="btn btn-primary">Details</a>
+            </div>
+            <div class="detail-button-div">
+              <a class="detail-button-a" href="<%= dog_path(dog) %>" role="button">Details</a>
             </div>
           </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+
   </tbody>

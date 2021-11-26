@@ -71,3 +71,5 @@ gem 'solargraph'
 # gem install permalink
 
 gem  'permalink'
+
+gem 'image_processing'

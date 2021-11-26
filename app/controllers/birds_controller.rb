@@ -8,7 +8,9 @@ class BirdsController < ApplicationController
   end
 
   # GET /birds/1 or /birds/1.json
-  def show; end
+  def show
+    console # Trigger the web console for debugging.
+  end
 
   # GET /birds/new
   def new

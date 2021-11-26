@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: %i[ show edit update destroy ]
+  before_action :set_page, only: %i[show edit update destroy]
+
+  http_basic_authenticate_with name: "nemo", password: "nemowang", except: [:show]
 
   # GET /pages or /pages.json
   def index
@@ -7,7 +9,10 @@ class PagesController < ApplicationController
   end
 
   # GET /pages/1 or /pages/1.json
-  def show
+  # def show
+  # end
+  def permalink
+    @page = Page.find_by(permalink: params[:permalink])
   end
 
   # GET /pages/new
@@ -16,8 +21,7 @@ class PagesController < ApplicationController
   end
 
   # GET /pages/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /pages or /pages.json
   def create
@@ -25,8 +29,8 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
-        format.html { redirect_to @page, notice: "Page was successfully created." }
-        format.json { render :show, status: :created, location: @page }
+        format.html { redirect_to permalink_path(@page.permalink), notice: "Page was successfully created." }
+        format.json { render :show, status: :created, location: permalink_path(@page.permalink) }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @page.errors, status: :unprocessable_entity }
@@ -38,8 +42,8 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update(page_params)
-        format.html { redirect_to @page, notice: "Page was successfully updated." }
-        format.json { render :show, status: :ok, location: @page }
+        format.html { redirect_to permalink_path(@page.permalink), notice: "Page was successfully updated." }
+        format.json { render :show, status: :ok, location: permalink_path(@page.permalink) }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @page.errors, status: :unprocessable_entity }
@@ -57,13 +61,14 @@ class PagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_page
-      @page = Page.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def page_params
-      params.require(:page).permit(:title, :content, :permalink)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_page
+    @page = Page.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def page_params
+    params.require(:page).permit(:title, :content, :permalink)
+  end
 end

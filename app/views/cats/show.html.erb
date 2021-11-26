@@ -1,24 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cat.name %>
-</p>
+<div class="container">
+  <div class="image">
+    <img src="<%= @cat.image_link %>" alt="cat" width="500px" height="600px">
+  </div>
+  <div class="text">
+      <h2>Name:<%= @cat.name %></h2>
+      <h3>Age:<%= @cat.age %></h3>
+      <h3>Price:<%= number_to_currency(@cat.price) %></h3>
+      <h3>Description:</h3>
+      <h3><%= @cat.description %></h3>
+  </div>
+</div>
 
-<p>
-  <strong>Age:</strong>
-  <%= @cat.age %>
-</p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @cat.price %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @cat.description %>
-</p>
-
-<%= link_to 'Edit', edit_cat_path(@cat) %> |
 <%= link_to 'Back', cats_path %>

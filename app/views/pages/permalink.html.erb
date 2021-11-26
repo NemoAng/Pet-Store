@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+  <% if false %>
+    <strong class="title ml-5 py-5">Title:</strong>
+  <% end %>
+
+  <h1 class="title"><%= @page.title %></h1>
+
+  <div>
+    <div class="background-about"></div>
+    <p class="foreground-about"><%= @page.content %></p>
+  </div>
+
+
+  <% if false %>
+    <p class="is-size-4 has-text-left px-6 py-3 cat-desc-show has-text-black"><%= @page.permalink %></p>
+  <% end %>
+
+</div>
+
+<div class="columns">
+  <div class="column is-full is-12"><%= @page.title %></div>
+</div>
+
+<div class="is-size-4 px-6 py-6">
+  <% if false %>
+    <%= debug @page %>
+  <% end %>
+
+  <% if false %>
+    <% console %>
+  <% end %>
+
+  <%= link_to 'Edit', edit_page_path(@page) %> |
+  <%= link_to 'Back', pages_path %>
+</div>

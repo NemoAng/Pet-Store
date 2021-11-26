@@ -1,24 +1,25 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @bird.name %>
-</p>
+<div class="container">
+  <div class="image">
+    <img class="card-img-top" src=<%= bird_path.gsub("s/","_")+".jpg" %> alt="Card image" width="500px" height="600px">
+  </div>
+  <div class="text">
+      <h2>Name:<%= @bird.name %></h2>
+      <h3>Age:<%= @bird.age %></h3>
+      <h3>Price： <%= number_to_currency(@bird.price) %></h3>
+      <h3>Common name: <%= @bird.common_family_name %></h3>
+      <h3>Geo: <%= @bird.geo %></h3>
+      <% if true %>
+        <h3>Adjective: <%= @bird.adjective %></h3>
+        <h3>E Adjective: <%= @bird.emotional_adjective %></h3>
+        <h3>S Adjective: <%= @bird.silly_adjective %></h3>
+      <% end %>
 
-<p>
-  <strong>Age:</strong>
-  <%= @bird.age %>
-</p>
+      <h3>Color: <%= @bird.color %></h3>
+      <h3>Description:</h3>
+      <h3><%= @bird.description %></h3>
+  </div>
+</div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @bird.price %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @bird.description %>
-</p>
-
-<%= link_to 'Edit', edit_bird_path(@bird) %> |
 <%= link_to 'Back', birds_path %>
