@@ -1,0 +1,30 @@
+    <div class="card card-common" style="width:300px">
+      <h2 class="card-title"><%= cat.name %></h2>
+      <img class="card-img-top" src="<%= cat.image_link %>" alt="Card image"">
+      <div class="card-body">
+        <h3 class="card-text">Age： <%= cat.age %></h3>
+        <h3 class="card-text">Price： <%= number_to_currency(cat.price) %></h3>
+        <h3 class="card-text"><%= cat.description.truncate(57, separator: /\s/) %></h3>
+      </div>
+      <div class="detail-button-div">
+        <a class="detail-button-a" href="<%= cat_path(cat) %>" role="button">Details</a>
+
+        <% if true %>
+          <% if cart.include?(cat) %>
+            <%= button_to cart_path(cat), :class=>'add-to-remove-from', method: :delete do %>
+              Remove From Cart
+            <% end %>
+          <% else %>
+            <%# cart_index_path %>
+            <%= form_with  url: carts_path, method: :post do %>
+              <%= hidden_field_tag(:id, cat.id) %>
+              <%= button_tag 'Add to Cart', :class=>'add-to-remove-from' %>
+            <% end %>
+          <% end %>
+        <% end %>
+
+      </div>
+    </div>
+
+
+

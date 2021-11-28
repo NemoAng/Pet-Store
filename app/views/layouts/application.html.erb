@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ScottOnlinePetStore</title>
+    <title>Scott Online Pet Store</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -19,6 +19,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
+    <% if false %>
+     <script src="https://js.stripe.com/v3">
+    <% end %>
 
   </head>
 
@@ -49,32 +52,67 @@
       <% end %>
     <% end %>
 
+    <% if false %>
+      <% if flash[:notice] %>
+        <p><%= flash[:notice] %></p>
+      <% end %>
+    <% end %>
+
+    <% if false %>
+      <%= debug cart %>
+    <% end %>
+
+    <% if true %>
+      <% if controller_name != 'pages'%>
+        <div class="cart-container">
+          <a href="<%= carts_path %>">
+            <img src="/assets/cart.png" alt="cart" style="width:90px;">
+            <% if cart.size != 0%>
+              <div class="cart-text"><%= cart.size %></div>
+            <% end %>
+          </a>
+        </div>
+
+        <div class="nav-cart">
+          <nav>
+              <%#= link_to image_tag("cart.png", width:60), root_path %>
+              <ol>
+                <% cart.each do |cat| %>
+                  <li>
+                    <%= cat.name.truncate(8, separator: /\s/) %> <%= link_to '➖', cart_path(cat), method: :delete %>
+                  </li>
+                <% end %>
+              </ol>
+          </nav>
+        </div>
+
+      <% end %>
+    <% end %>
+
+
     <%= yield %>
 
     <div class="footer">
       ©<%=Time.new.year %> Red River College Polytechnic
     </div>
 
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        var y = document.getElementById("myOffset");
+        // topnav-offset
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
 
-  <script>
-    function myFunction() {
-      var x = document.getElementById("myTopnav");
-      var y = document.getElementById("myOffset");
-      // topnav-offset
-      if (x.className === "topnav") {
-        x.className += " responsive";
-      } else {
-        x.className = "topnav";
+        if (y.className === "topnav-off") {
+          y.className += " topnav-offset";
+        } else {
+          y.className = "topnav-off";
+        }
       }
-
-      if (y.className === "topnav-off") {
-        y.className += " topnav-offset";
-      } else {
-        y.className = "topnav-off";
-      }
-
-    }
-
-  </script>
+    </script>
   </body>
 </html>

@@ -18,6 +18,23 @@
       <h3>Color: <%= @bird.color %></h3>
       <h3>Description:</h3>
       <h3><%= @bird.description %></h3>
+
+
+      <div class="add2remove-details-wrap">
+        <% if true %>
+          <% if cart.include?(@bird) %>
+            <%= button_to cart_path(@bird), :class=>'add-to-remove-from add2remove-details', method: :delete do %>
+              Remove From Cart
+            <% end %>
+          <% else %>
+            <%= form_with  url: cart_index_path, method: :post do %>
+              <%= hidden_field_tag(:id, @bird.id) %>
+              <%= button_tag 'Add to Cart', :class=>'add-to-remove-from add2remove-details' %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
   </div>
 </div>
 

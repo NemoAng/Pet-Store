@@ -5,13 +5,16 @@ class CatsController < ApplicationController
   # GET /cats or /cats.json
   def index
     # @cats = Cat.all
+    byebug
     @cats = Cat.order(:name).page_nemo_method params[:page_haha]
 
-    # console # Trigger the web console for debugging.
+    console # Trigger the web console for debugging.
   end
 
   # GET /cats/1 or /cats/1.json
-  def show; end
+  def show
+    console
+  end
 
   # GET /cats/new
   def new

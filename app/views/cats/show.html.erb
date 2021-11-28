@@ -10,8 +10,27 @@
       <h3>Price:<%= number_to_currency(@cat.price) %></h3>
       <h3>Description:</h3>
       <h3><%= @cat.description %></h3>
+
+      <div class="add2remove-details-wrap">
+        <% if true %>
+          <% if cart.include?(@cat) %>
+            <%= button_to cart_path(@cat), :class=>'add-to-remove-from add2remove-details', method: :delete do %>
+              Remove From Cart
+            <% end %>
+          <% else %>
+            <%= form_with  url: cart_index_path, method: :post do %>
+              <%= hidden_field_tag(:id, @cat.id) %>
+              <%= button_tag 'Add to Cart', :class=>'add-to-remove-from add2remove-details' %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
+
   </div>
 </div>
+
+
 
 
 

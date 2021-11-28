@@ -1,0 +1,38 @@
+<div class="card card-common" style="width:300px">
+  <h2 class="card-title"><%= bird.name %></h2>
+  <img class="card-img-top" src="<%= bird_path(bird).gsub("s/","_") %>.jpg" alt="Card image"">
+  <div class="card-body">
+    <h3 class="card-text">Age： <%= bird.age %></h3>
+    <h3 class="card-text">Price： <%= number_to_currency(bird.price) %></h3>
+    <h3 class="card-text"><%= bird.description.truncate(57, separator: /\s/) %></h3>
+
+    <h3 class="card-text">Common name: <%= bird.common_family_name %></h3>
+    <h3 class="card-text">Geo: <%= bird.geo %></h3>
+    <% if true %>
+      <h3 class="card-text">Adjective: <%= bird.adjective %></h3>
+      <h3 class="card-text">E Adjective: <%= bird.emotional_adjective %></h3>
+      <h3 class="card-text">S Adjective: <%= bird.silly_adjective %></h3>
+    <% end %>
+
+    <h3 class="card-text">Color: <%= bird.color %></h3>
+
+  </div>
+  <div class="detail-button-div">
+    <a class="detail-button-a" href="<%= bird_path(bird) %>" role="button">Details</a>
+
+    <% if true %>
+      <% if cart.include?(bird) %>
+        <%= button_to cart_path(bird), :class=>'add-to-remove-from', method: :delete do %>
+          Remove From Cart
+        <% end %>
+      <% else %>
+        <%= form_with  url: cart_index_path, method: :post do %>
+          <%= hidden_field_tag(:id, bird.id) %>
+          <%= button_tag 'Add to Cart', :class=>'add-to-remove-from' %>
+
+        <% end %>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>

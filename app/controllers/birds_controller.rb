@@ -5,6 +5,8 @@ class BirdsController < ApplicationController
   def index
     # @birds = Bird.all
     @birds = Bird.order(:name).page_nemo_method params[:page_haha]
+
+    console
   end
 
   # GET /birds/1 or /birds/1.json

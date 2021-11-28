@@ -6,8 +6,31 @@
       <h2>Name:<%= @dog.name %></h2>
       <h3>Age:<%= @dog.age %></h3>
       <h3>Price:<%= number_to_currency(@dog.price) %></h3>
+
+      <h3>Gender:<%= @dog.gender %></h3>
+      <h3>Coat length:<%= @dog.coat_length %></h3>
+      <h3>Size:<%= @dog.size %></h3>
+      <h3>Sound:<%= @dog.sound %></h3>
+      <h3>Meme phrase:<%= @dog.meme_phrase %></h3>
+
       <h3>Description:</h3>
       <h3><%= @dog.description %></h3>
+
+      <div class="add2remove-details-wrap">
+        <% if true %>
+          <% if cart.include?(@dog) %>
+            <%= button_to cart_path(@dog), :class=>'add-to-remove-from add2remove-details', method: :delete do %>
+              Remove From Cart
+            <% end %>
+          <% else %>
+            <%= form_with  url: cart_index_path, method: :post do %>
+              <%= hidden_field_tag(:id, @dog.id) %>
+              <%= button_tag 'Add to Cart', :class=>'add-to-remove-from add2remove-details' %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
   </div>
 </div>
 

@@ -93,7 +93,11 @@ unless 1_000_000.even?
     description = Faker::Lorem.paragraph(sentence_count: rand(5..10), supplemental: false,
                                          random_sentences_to_add: 4)
     image_link = dog_api_fetch(dog_api_url)["message"]
-
+    gender = Faker::Creature::Dog.gender
+    coat_length = Faker::Creature::Dog.coat_length
+    size = Faker::Creature::Dog.size
+    meme_phrase = Faker::Creature::Dog.meme_phrase
+    sound = Faker::Creature::Dog.sound
     breed = Faker::Creature::Dog.breed
     breed_description = Faker::Lorem.paragraph(sentence_count: rand(5..10), supplemental: false,
                                                random_sentences_to_add: 4)
@@ -113,6 +117,11 @@ unless 1_000_000.even?
     dog_breed.dogs.create( # Cat,,,[Breed/has_many :cats], 2
       name:        name,
       age:         age,
+      gender:      gender, # #
+      coat_length: coat_length,
+      size:        size,
+      meme_phrase: meme_phrase,
+      sound:       sound, # #
       price:       price,
       image_link:  image_link,
       description: description
@@ -120,7 +129,7 @@ unless 1_000_000.even?
   end
 end
 
-unless 1_000_001.even?
+unless 1_000_000.even?
   Bird.delete_all
   # BirdBreed.delete_all
   Bird.reset_pk_sequence

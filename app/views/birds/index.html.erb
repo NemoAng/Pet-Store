@@ -1,32 +1,39 @@
 <tbody>
   <%=paginate @birds, window: 2, outer_window: 3, clsss:'has-text-black' %>
 
-  <div class="container_bird flex-container">
-    <% @birds.each_with_index do |bird, index| %>
-      <div class="card" style="width:300px">
-        <h2 class="card-title"><%= bird.name %></h2>
-        <img class="card-img-top" src="/bird_<%= index %>.jpg" alt="Card image"">
-        <div class="card-body">
-          <h3 class="card-text">Age： <%= bird.age %></h3>
-          <h3 class="card-text">Price： <%= number_to_currency(bird.price) %></h3>
-          <% if false %>
-            <h3 class="card-text"><%= bird.description.truncate(57, separator: /\s/) %></h3>
-          <% end %>
+  <% if false %>
+    <div class="container_bird flex-container">
+        <% @birds.each_with_index do |bird, index| %>
+          <div class="card" style="width:300px">
+            <h2 class="card-title"><%= bird.name %></h2>
+            <img class="card-img-top" src="/bird_<%= index %>.jpg" alt="Card image"">
+            <div class="card-body">
+              <h3 class="card-text">Age： <%= bird.age %></h3>
+              <h3 class="card-text">Price： <%= number_to_currency(bird.price) %></h3>
+              <% if false %>
+                <h3 class="card-text"><%= bird.description.truncate(57, separator: /\s/) %></h3>
+              <% end %>
 
-          <h3 class="card-text">Common name: <%= bird.common_family_name %></h3>
-          <h3 class="card-text">Geo: <%= bird.geo %></h3>
-          <% if false %>
-            <h3 class="card-text">Adjective: <%= bird.adjective %></h3>
-            <h3 class="card-text">E Adjective: <%= bird.emotional_adjective %></h3>
-            <h3 class="card-text">S Adjective: <%= bird.silly_adjective %></h3>
-          <% end %>
+              <h3 class="card-text">Common name: <%= bird.common_family_name %></h3>
+              <h3 class="card-text">Geo: <%= bird.geo %></h3>
+              <% if false %>
+                <h3 class="card-text">Adjective: <%= bird.adjective %></h3>
+                <h3 class="card-text">E Adjective: <%= bird.emotional_adjective %></h3>
+                <h3 class="card-text">S Adjective: <%= bird.silly_adjective %></h3>
+              <% end %>
 
-          <h3 class="card-text">Color: <%= bird.color %></h3>
-        </div>
-        <div class="detail-button-div">
-          <a class="detail-button-a" href="<%= bird_path(bird) %>" role="button">Details</a>
-        </div>
+              <h3 class="card-text">Color: <%= bird.color %></h3>
+            </div>
+            <div class="detail-button-div">
+              <a class="detail-button-a" href="<%= bird_path(bird) %>" role="button">Details</a>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+  <% end %>
+
+  <div class="container flex-container">
+    <%= render @birds %>
   </div>
+
 </tbody>

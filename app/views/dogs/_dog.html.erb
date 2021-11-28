@@ -1,0 +1,37 @@
+<div class="card card-common" style="width:300px">
+  <h2 class="card-title"><%= dog.name %></h2>
+  <img class="card-img-top" src="<%= dog.image_link %>" alt="Card image">
+  <div class="card-body">
+    <h3 class="card-text">Age：<%= dog.age %></h3>
+    <h3 class="card-text">Price：<%= number_to_currency(dog.price) %></h3>
+
+    <h3 class="card-text">Gender:<%= dog.gender %></h3>
+    <h3 class="card-text">Coat length:<%= dog.coat_length %></h3>
+    <h3 class="card-text">Size:<%= dog.size %></h3>
+    <h3 class="card-text">Sound:<%= dog.sound %></h3>
+    <h3 class="card-text">Meme phrase:<%= dog.meme_phrase %></h3>
+
+    <h3 class="card-text"><%= dog.description.truncate(57, separator: /\s/) %></h3>
+
+  </div>
+  <div class="detail-button-div">
+    <a class="detail-button-a" href="<%= dog_path(dog) %>" role="button">Details</a>
+
+    <% if true %>
+      <% if cart.include?(dog) %>
+        <%= button_to cart_path(dog), :class=>'add-to-remove-from', method: :delete do %>
+          Remove From Cart
+        <% end %>
+      <% else %>
+        <%# cart_index_path %>
+        <%= form_with  url: carts_path, method: :post do %>
+          <%#= simple_format dog.to_yaml %>
+
+          <%= hidden_field_tag(:id, dog.id) %>
+          <%= button_tag 'Add to Cart', :class=>'add-to-remove-from' %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>
