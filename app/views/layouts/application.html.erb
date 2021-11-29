@@ -14,6 +14,7 @@
 
 
     <% if false %>
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <% end %>
 
@@ -75,20 +76,20 @@
         </div>
 
         <div class="nav-cart">
-          <nav>
-              <%#= link_to image_tag("cart.png", width:60), root_path %>
-              <ol>
-                <% cart.each do |cat| %>
-                  <li>
-                    <%= cat.name.truncate(8, separator: /\s/) %> <%= link_to '➖', cart_path(cat), method: :delete %>
-                  </li>
-                <% end %>
-              </ol>
-          </nav>
+          <%#= link_to image_tag("cart.png", width:60), root_path %>
+            <table>
+            <% cart.each do |cat| %>
+              <tr>
+                <th><%= cat.name %></th>
+                <td><%= link_to '➖', cart_path(cat), method: :delete %></td>
+              </tr>
+            <% end %>
+            </table>
         </div>
 
       <% end %>
     <% end %>
+
 
 
     <%= yield %>

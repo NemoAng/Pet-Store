@@ -6,7 +6,7 @@ class DogsController < ApplicationController
     # @dogs = Dog.all
     @dogs = Dog.order(:name).page_nemo_method params[:page_haha]
 
-    console # Trigger the web console for debugging.
+    # console # Trigger the web console for debugging.
   end
 
   # GET /dogs/1 or /dogs/1.json

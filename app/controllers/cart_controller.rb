@@ -6,7 +6,7 @@ class CartController < ApplicationController
     # byebug
     @cart = session[:shopping_cart_cat]
 
-    console # Trigger the web console for debugging.
+    # console # Trigger the web console for debugging.
   end
 
   # POST /cart
@@ -22,7 +22,7 @@ class CartController < ApplicationController
     # for cat
     session[:shopping_cart_cat] << id # puts onto the array on the end!
     cat = Cat.find(id)
-    flash[:notice] = "➕ #{cat.name} added to cart!"
+    # flash[:notice] = "➕ #{cat.name} added to cart!"
 
     # for dog
     # session[:shopping_cart_dog] << id # puts onto the array on the end!
@@ -45,7 +45,7 @@ class CartController < ApplicationController
     # for cat
     session[:shopping_cart_cat].delete(id) # puts onto the array on the end!
     cat = Cat.find(id)
-    flash[:notice] = "— #{cat.name} removed from cart!"
+    # flash[:notice] = "— #{cat.name} removed from cart!"
 
     # for dog
     # session[:shopping_cart_dog].delete(id) # puts onto the array on the end!
@@ -64,5 +64,6 @@ class CartController < ApplicationController
 
   def set_cart
     @cart = Cart.find(params[:shopping_cart_cat])
+    # $checkout = 0
   end
 end

@@ -16,7 +16,7 @@
 
 * {
   font-family: "Courier New", Courier, monospace;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 body {
@@ -310,12 +310,11 @@ a.active {
 .cart-item-container {
   display: flex;
 
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: flex-start;
 
   height: 100%;
-  padding: 15px;
-  gap: 5px;
+  padding: 15px 50px;
 }
 
 .cart-item-img {
@@ -325,4 +324,44 @@ a.active {
 .cart-item-container > div {
   border-radius: 5px;
   padding: 8px;
+}
+
+.checkout {
+  display: flex;
+
+  justify-content: flex-end;
+  align-items: baseline;
+  /* flex-flow: row; */
+  flex-direction: row;
+
+  padding: 15px 50px;
+}
+
+.checkout button {
+  padding: 10px 35px;
+  border-radius: 5px;
+  background-color: rgb(197, 12, 197);
+  color: white;
+  font-weight: bolder;
+}
+
+.checkout button:hover {
+  cursor: pointer;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.remove-from {
+  align-items: flex-end;
+  padding: 5px 5px;
+  display: flex;
+  background-color: red;
+  color: white;
+  font-weight: bolder;
 }

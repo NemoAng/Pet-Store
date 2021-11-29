@@ -14,7 +14,7 @@ class PagesController < ApplicationController
   def permalink
     @page = Page.find_by(permalink: params[:permalink])
 
-    console
+    # console
   end
 
   # GET /pages/new
