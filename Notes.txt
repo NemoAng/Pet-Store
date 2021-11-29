@@ -63,7 +63,9 @@ class DropBirdBreeds < ActiveRecord::Migration[6.1]
 end
 
 
-
+rails generate migration AddCategoryToCats category:references
+rails generate migration AddCategoryToDogs category:references
+rails generate migration AddCategoryToBirds category:references
 
 
 

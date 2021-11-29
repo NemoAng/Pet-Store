@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_29_051028) do
+ActiveRecord::Schema.define(version: 2021_11_29_162931) do
 
   create_table "birds", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2021_11_29_051028) do
     t.string "emotional_adjective"
     t.string "silly_adjective"
     t.string "color"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_birds_on_category_id"
   end
 
   create_table "carts", force: :cascade do |t|
@@ -56,7 +58,9 @@ ActiveRecord::Schema.define(version: 2021_11_29_051028) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "image_link"
     t.integer "cat_breed_id", null: false
+    t.integer "category_id"
     t.index ["cat_breed_id"], name: "index_cats_on_cat_breed_id"
+    t.index ["category_id"], name: "index_cats_on_category_id"
   end
 
   create_table "dog_breeds", force: :cascade do |t|
@@ -80,6 +84,8 @@ ActiveRecord::Schema.define(version: 2021_11_29_051028) do
     t.string "meme_phrase"
     t.string "sound"
     t.integer "dog_breed_id", null: false
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_dogs_on_category_id"
     t.index ["dog_breed_id"], name: "index_dogs_on_dog_breed_id"
   end
 
@@ -91,6 +97,9 @@ ActiveRecord::Schema.define(version: 2021_11_29_051028) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "birds", "categories"
   add_foreign_key "cats", "cat_breeds"
+  add_foreign_key "cats", "categories"
+  add_foreign_key "dogs", "categories"
   add_foreign_key "dogs", "dog_breeds"
 end

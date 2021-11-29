@@ -2,7 +2,7 @@ class Cat < ApplicationRecord
   # paginates_per 30
 
   # for own's FK
-  belongs_to :cat_breed
+  belongs_to :cat_breed#, :category
 
   # for validate.
   validates :name, :age, :price, :description, :image_link, presence: true
