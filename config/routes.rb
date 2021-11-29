@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   get "/pages/:permalink" => "pages#permalink", as: "permalink"
   get "/pages/:cms_pages_about" => "pages#cms_pages_about", as: "cms_pages_about"
 

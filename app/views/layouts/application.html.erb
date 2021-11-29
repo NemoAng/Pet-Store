@@ -81,7 +81,7 @@
             <% cart.each do |cat| %>
               <tr>
                 <th><%= cat.name %></th>
-                <td><%= link_to '➖', cart_path(cat), method: :delete %></td>
+                <td><%= link_to 'Remove', cart_path(cat), method: :delete %></td>
               </tr>
             <% end %>
             </table>

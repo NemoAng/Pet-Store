@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_28_180159) do
+ActiveRecord::Schema.define(version: 2021_11_29_051028) do
 
   create_table "birds", force: :cascade do |t|
     t.string "name"
@@ -28,14 +28,21 @@ ActiveRecord::Schema.define(version: 2021_11_28_180159) do
     t.string "color"
   end
 
-  # create_table "cart_s", force: :cascade do |t|
-  #   t.datetime "created_at", precision: 6, null: false
-  #   t.datetime "updated_at", precision: 6, null: false
-  # end
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "cat_breeds", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.integer "species"
+    t.string "species_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
