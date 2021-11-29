@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
     <% if false %>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <% end %>
@@ -65,7 +66,7 @@
     <% if true %>
       <% if controller_name != 'pages'%>
         <div class="cart-container">
-          <a href="<%= carts_path %>">
+          <a href="<%= cart_index_path %>">
             <img src="/assets/cart.png" alt="cart" style="width:90px;">
             <% if cart.size != 0%>
               <div class="cart-text"><%= cart.size %></div>

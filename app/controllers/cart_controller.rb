@@ -1,10 +1,10 @@
-class CartsController < ApplicationController
-  # before_action :set_cart, only: %i[show]
+class CartController < ApplicationController
+  before_action :set_cart, only: %i[show]
 
   def index
     # @cats = Cat.all
     # byebug
-    @carts = session[:shopping_cart_cat]
+    @cart = session[:shopping_cart_cat]
 
     console # Trigger the web console for debugging.
   end

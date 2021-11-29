@@ -16,7 +16,7 @@
 
 * {
   font-family: "Courier New", Courier, monospace;
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 
 body {
@@ -305,4 +305,24 @@ a.active {
   height: 100%;
   padding: 15px;
   gap: 5px;
+}
+
+.cart-item-container {
+  display: flex;
+
+  justify-content: space-between; 
+  align-items: flex-start;
+
+  height: 100%;
+  padding: 15px;
+  gap: 5px;
+}
+
+.cart-item-img {
+  width: 250px;
+}
+
+.cart-item-container > div {
+  border-radius: 5px;
+  padding: 8px;
 }

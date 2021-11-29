@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 2021_11_28_180159) do
     t.string "color"
   end
 
-  create_table "carts", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+  # create_table "cart_s", force: :cascade do |t|
+  #   t.datetime "created_at", precision: 6, null: false
+  #   t.datetime "updated_at", precision: 6, null: false
+  # end
 
   create_table "cat_breeds", force: :cascade do |t|
     t.string "name"

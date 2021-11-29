@@ -1,0 +1,22 @@
+<tbody>
+  <% if true %>
+    <% cart.each do |cat| %>
+      <div class="cart-item-container" style="height:250px">
+        <div class="cart-item-img">
+          <h3><%= cat.name %></h3>
+          <img class="card-img-top" src="<%= cat.image_link %>" alt="Card image" >
+        </div>
+        <div class="cart-item">
+          <h3><%= number_to_currency(cat.price) %></h3>
+        </div>
+      </div>
+    <% end %>
+
+    <div>
+      <% cart.each do |cat| %>
+        
+      <% end %>
+    </div>
+
+  <% end %>
+</tbody>

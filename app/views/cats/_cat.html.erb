@@ -1,6 +1,6 @@
     <div class="card card-common" style="width:300px">
       <h2 class="card-title"><%= cat.name %></h2>
-      <img class="card-img-top" src="<%= cat.image_link %>" alt="Card image"">
+      <img class="card-img-top" src="<%= cat.image_link %>" alt="Card image">
       <div class="card-body">
         <h3 class="card-text">Age： <%= cat.age %></h3>
         <h3 class="card-text">Price： <%= number_to_currency(cat.price) %></h3>
@@ -15,8 +15,7 @@
               Remove From Cart
             <% end %>
           <% else %>
-            <%# cart_index_path %>
-            <%= form_with  url: carts_path, method: :post do %>
+            <%= form_with  url: cart_index_path, method: :post do %>
               <%= hidden_field_tag(:id, cat.id) %>
               <%= button_tag 'Add to Cart', :class=>'add-to-remove-from' %>
             <% end %>

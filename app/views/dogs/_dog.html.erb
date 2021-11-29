@@ -23,8 +23,7 @@
           Remove From Cart
         <% end %>
       <% else %>
-        <%# cart_index_path %>
-        <%= form_with  url: carts_path, method: :post do %>
+        <%= form_with  url: cart_index_path, method: :post do %>
           <%#= simple_format dog.to_yaml %>
 
           <%= hidden_field_tag(:id, dog.id) %>
