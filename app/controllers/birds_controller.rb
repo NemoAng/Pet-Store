@@ -6,7 +6,7 @@ class BirdsController < ApplicationController
     # @birds = Bird.all
     @birds = Bird.order(:name).page_nemo_method params[:page_haha]
 
-    # console
+    console
   end
 
   # GET /birds/1 or /birds/1.json
@@ -57,6 +57,11 @@ class BirdsController < ApplicationController
       format.html { redirect_to birds_url, notice: "Bird was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    wildcard_search = "%#{params[:keywords]}%"
+    @birds = Bird.where("name LIKE ?", wildcard_search)
   end
 
   private

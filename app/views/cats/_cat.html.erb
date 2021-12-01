@@ -8,16 +8,19 @@
       </div>
       <div class="detail-button-div">
         <a class="detail-button-a" href="<%= cat_path(cat) %>" role="button">Details</a>
-
         <% if true %>
-          <% if cart.include?(cat) %>
+          <% if cart[0].include?(cat) %>
             <%= button_to cart_path(cat), :class=>'add-to-remove-from', method: :delete do %>
               Remove From Cart
+              <%# $animal_type = 'cat' %>
             <% end %>
           <% else %>
             <%= form_with  url: cart_index_path, method: :post do %>
+
               <%= hidden_field_tag(:id, cat.id) %>
               <%= button_tag 'Add to Cart', :class=>'add-to-remove-from' %>
+              <%# $animal_type = 'cat' %>
+              <%# $animal_type_static = 20000 %>
             <% end %>
           <% end %>
         <% end %>

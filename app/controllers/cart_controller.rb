@@ -4,9 +4,10 @@ class CartController < ApplicationController
   def index
     # @cats = Cat.all
     # byebug
-    @cart = session[:shopping_cart_cat]
+    # @cart = session[:shopping_cart_cat]
+    # @cart = session
 
-    # console # Trigger the web console for debugging.
+    console # Trigger the web console for debugging.
   end
 
   # POST /cart
@@ -19,9 +20,32 @@ class CartController < ApplicationController
     # logger.debug params.inspect.to_sp
     id = params[:id].to_i
 
+    # byebug # cart_controller.rb
+
+    if $animal_type == "cats"
+      puts "🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱+"
+      session[:shopping_cart_cat] << id
+      redirect_to cats_path
+    elsif $animal_type == "dogs"
+      puts "🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶+"
+      session[:shopping_cart_dog] << id
+      redirect_to dogs_path
+    elsif $animal_type == "birds"
+      puts "🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜+"
+      session[:shopping_cart_bird] << id
+
+      # byebug
+      redirect_to birds_path
+    else
+      puts "💩💩💩💩💩💩💩💩💩💩💩💩💩"
+    end
+
+    # byebug
+
     # for cat
-    session[:shopping_cart_cat] << id # puts onto the array on the end!
-    cat = Cat.find(id)
+    # session[:shopping_cart_cat] << id # puts onto the array on the end!
+
+    # cat = Cat.find(id)
     # flash[:notice] = "➕ #{cat.name} added to cart!"
 
     # for dog
@@ -34,7 +58,8 @@ class CartController < ApplicationController
     # bird = Bird.find(id)
     # flash[:notice] = "➕ #{bird.name} added to cart!"
 
-    redirect_to root_path
+    # byebug
+    # redirect_to root_path
   end
 
   # DELETE /cart/:id
@@ -42,9 +67,25 @@ class CartController < ApplicationController
     # remove params[:id] from cart
     id = params[:id].to_i
 
+    if $animal_type == "cats"
+      puts "🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱-"
+      session[:shopping_cart_cat].delete(id)
+      redirect_to cats_path
+    elsif $animal_type == "dogs"
+      puts "🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶-"
+      session[:shopping_cart_dog].delete(id)
+      redirect_to dogs_path
+    elsif $animal_type == "birds"
+      puts "🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜-"
+      session[:shopping_cart_bird].delete(id)
+      redirect_to birds_path
+    else
+      puts "💩💩💩💩💩💩💩💩💩💩💩💩💩"
+    end
+
     # for cat
-    session[:shopping_cart_cat].delete(id) # puts onto the array on the end!
-    cat = Cat.find(id)
+    ## session[:shopping_cart_cat].delete(id) # puts onto the array on the end!
+    # cat = Cat.find(id)
     # flash[:notice] = "— #{cat.name} removed from cart!"
 
     # for dog
@@ -57,13 +98,16 @@ class CartController < ApplicationController
     # bird = Bird.find(id)
     # flash[:notice] = "— #{bird.name} removed from cart!"
 
-    redirect_to root_path
+    # redirect_to root_path
   end
 
   private
 
   def set_cart
-    @cart = Cart.find(params[:shopping_cart_cat])
-    # $checkout = 0
+    @cart_cat = Cart.find(params[:shopping_cart_cat])
+
+    @cart_dog = Cart.find(params[:shopping_cart_dog])
+
+    @cart_bird = Cart.find(params[:shopping_cart_bird])
   end
 end

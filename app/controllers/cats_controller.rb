@@ -8,7 +8,7 @@ class CatsController < ApplicationController
     # byebug
     @cats = Cat.order(:name).page_nemo_method params[:page_haha]
 
-    # console # Trigger the web console for debugging.
+    console # Trigger the web console for debugging.
   end
 
   # GET /cats/1 or /cats/1.json
@@ -58,6 +58,33 @@ class CatsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to cats_url, notice: "Cat was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  # Search?
+  # SELECT name FROM cats
+  # WHERE name LIKE '%Hameowlton%'
+  def search
+    wildcard_search = "%#{params[:keywords]}%"
+    $g_category_search = "%#{params[:category]}%"
+
+    case $g_category_search
+    when "%Cat%"
+      @cats = Cat.where("name LIKE ?", wildcard_search)
+      puts "🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱..."
+    when "%Dog%"
+      @dogs = Dog.where("name LIKE ?", wildcard_search)
+      puts "🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶..."
+    when "%Bird%"
+      @birds = Bird.where("name LIKE ?", wildcard_search)
+      puts "🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜..."
+    else
+      @cats = Cat.where("name LIKE ?", wildcard_search)
+      @dogs = Dog.where("name LIKE ?", wildcard_search)
+      @birds = Bird.where("name LIKE ?", wildcard_search)
+      puts "🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱..."
+      puts "🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶..."
+      puts "🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜..."
     end
   end
 

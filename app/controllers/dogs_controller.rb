@@ -6,7 +6,7 @@ class DogsController < ApplicationController
     # @dogs = Dog.all
     @dogs = Dog.order(:name).page_nemo_method params[:page_haha]
 
-    # console # Trigger the web console for debugging.
+    console # Trigger the web console for debugging.
   end
 
   # GET /dogs/1 or /dogs/1.json
@@ -55,6 +55,11 @@ class DogsController < ApplicationController
       format.html { redirect_to dogs_url, notice: "Dog was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    wildcard_search = "%#{params[:keywords]}%"
+    @dogs = Dog.where("name LIKE ?", wildcard_search)
   end
 
   private

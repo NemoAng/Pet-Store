@@ -2,7 +2,8 @@ class Dog < ApplicationRecord
   # paginates_per 30
 
   # for own's FK
-  belongs_to :dog_breed#, :category
+  belongs_to :dog_breed
+  # belongs_to :category
 
   # for validate.
   validates :name, :age, :price, :description, :image_link, presence: true

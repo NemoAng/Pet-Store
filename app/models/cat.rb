@@ -3,6 +3,7 @@ class Cat < ApplicationRecord
 
   # for own's FK
   belongs_to :cat_breed#, :category
+  # belongs_to :category
 
   # for validate.
   validates :name, :age, :price, :description, :image_link, presence: true

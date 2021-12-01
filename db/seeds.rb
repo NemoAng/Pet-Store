@@ -38,12 +38,37 @@ end
 #   # run if condition is false
 # end
 
-# 1_000_001.even? run again
-# 1_000_000.even? run ignore
-unless 1_000_000.even?
-  Cat.delete_all
-  CatBreed.delete_all
-  Cat.reset_pk_sequence
+# for cat
+Cat.delete_all
+CatBreed.delete_all
+Cat.reset_pk_sequence
+
+# for dog
+Dog.delete_all
+DogBreed.delete_all
+Dog.reset_pk_sequence
+
+#  for bird
+Bird.delete_all
+# BirdBreed.delete_all # bird has no breed
+Bird.reset_pk_sequence
+
+# for category
+Category.delete_all
+Category.reset_pk_sequence
+
+# 1_000_001.even?  again
+# 1_000_000.even?  ignore
+unless 1_000_001.even?
+  # Cat.delete_all
+  # CatBreed.delete_all
+  # Cat.reset_pk_sequence
+
+  cat_species = 1
+  cat_species_name = "cat"
+
+  puts "Creating bird category: #{cat_species_name}"
+  category = Category.create!(species: cat_species, species_name: cat_species_name)
 
   CAT_NUM.each_with_index do |item, index|
     name = Faker::Creature::Cat.unique.name
@@ -74,17 +99,29 @@ unless 1_000_000.even?
       age:         age,
       price:       price,
       image_link:  image_link,
-      description: description
+      description: description,
+      category_id: category.id
     )
   end
 end
 
-# 1_000_001.even? run again
-# 1_000_000.even? run ignore
-unless 1_000_000.even?
-  Dog.delete_all
-  DogBreed.delete_all
-  Dog.reset_pk_sequence
+# 1_000_001.even?  again
+# 1_000_000.even?  ignore
+unless 1_000_001.even?
+  # Dog.delete_all
+  # DogBreed.delete_all
+  # Dog.reset_pk_sequence
+
+  dog_species = 2
+  dog_species_name = "dog"
+
+  puts "Creating bird category: #{dog_species_name}"
+  category = Category.create!(species: dog_species, species_name: dog_species_name)
+  # category.save
+
+  # if bird_category && bird_category.valid?
+  # next unless bird_category && bird_category.valid?
+  category&.valid?
 
   DOG_NUM.each_with_index do |item, index|
     name = Faker::Creature::Dog.unique.name
@@ -124,15 +161,33 @@ unless 1_000_000.even?
       sound:       sound, # #
       price:       price,
       image_link:  image_link,
-      description: description
+      description: description,
+      category_id: category.id
     )
   end
 end
 
-unless 1_000_000.even?
-  Bird.delete_all
-  # BirdBreed.delete_all
-  Bird.reset_pk_sequence
+# 1_000_001.even?  again
+# 1_000_000.even?  ignore
+unless 1_000_001.even?
+  # Bird.delete_all
+  # # BirdBreed.delete_all
+  # Bird.reset_pk_sequence
+
+  # Category.delete_all
+  # Category.reset_pk_sequence
+
+  bird_species = 3
+  bird_species_name = "bird"
+
+  puts "Creating bird category: #{bird_species_name}"
+  category = Category.create!(species: bird_species, species_name: bird_species_name)
+
+  # category.save
+
+  # if bird_category && bird_category.valid?
+  # next unless bird_category && bird_category.valid?
+  category&.valid?
 
   bird = BIRD_NUM.each do |index|
     name = Faker::Creature::Bird.unique.common_name
@@ -150,20 +205,30 @@ unless 1_000_000.even?
 
     puts "Creating #{index}/#{BIRD_NUM.max} bird: #{name}"
 
-    bird = Bird.create(
+    # category.birds.create(
+    #   name:                name,                age:                 age,
+    #   price:               price,               image_link:          "image_link",
+    #   description:         description,         common_family_name:  common_family_name,
+    #   geo:                 geo,                 adjective:           adjective,
+    #   emotional_adjective: emotional_adjective, silly_adjective:     silly_adjective,
+    #   color:               color
+    # )
+
+    bird = Bird.create!(
       name:                name,                age:                 age,
       price:               price,               image_link:          "image_link",
       description:         description,         common_family_name:  common_family_name,
       geo:                 geo,                 adjective:           adjective,
       emotional_adjective: emotional_adjective, silly_adjective:     silly_adjective,
-      color:               color
+      color:               color,               category_id:         category.id
     )
-    if bird.save
-      puts "bird was saved to the database products table."
-      # pp bird
-    else
-      puts "There was an error saving bird to the database."
-    end
+
+    # if bird.save
+    #   puts "bird was saved to the database products table."
+    #   # pp bird
+    # else
+    #   puts "There was an error saving bird to the database."
+    # end
   end
 end
 

@@ -2,7 +2,7 @@ class Bird < ApplicationRecord
   # paginates_per 30
 
   # for own's FK
-  belongs_to :bird_breed#, :category
+  belongs_to :category
 
   # for validate.
   validates :name, :age, :price, :description, :image_link, presence: true

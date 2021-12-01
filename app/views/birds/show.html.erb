@@ -22,7 +22,7 @@
 
       <div class="add2remove-details-wrap">
         <% if true %>
-          <% if cart.include?(@bird) %>
+          <% if cart[2].include?(@bird) %>
             <%= button_to cart_path(@bird), :class=>'add-to-remove-from add2remove-details', method: :delete do %>
               Remove From Cart
             <% end %>

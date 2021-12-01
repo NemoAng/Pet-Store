@@ -21,15 +21,16 @@
     <a class="detail-button-a" href="<%= bird_path(bird) %>" role="button">Details</a>
 
     <% if true %>
-      <% if cart.include?(bird) %>
+      <% if cart[2].include?(bird) %>
         <%= button_to cart_path(bird), :class=>'add-to-remove-from', method: :delete do %>
           Remove From Cart
+          <%# $animal_type = 'bird' %>
         <% end %>
       <% else %>
         <%= form_with  url: cart_index_path, method: :post do %>
           <%= hidden_field_tag(:id, bird.id) %>
           <%= button_tag 'Add to Cart', :class=>'add-to-remove-from' %>
-
+          <%# $animal_type = 'bird' %>
         <% end %>
       <% end %>
     <% end %>

@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+
+<% if false %>
+# Animal
+# -> id
+# -> category_id
+# -> name/age/weight/description/whatever animal thing here
+
+# Category:
+# -> id
+# -> name
+
+<% end %>
+
 <html>
   <head>
     <title>Scott Online Pet Store</title>
@@ -11,7 +24,6 @@
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 
     <% if false %>
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -28,7 +40,7 @@
   </head>
 
   <header>
-    <div class="topnav" id="myTopnav">
+   <div class="topnav" id="myTopnav">
       <div class="topnav-off" id="myOffset">
         <a href="/welcome.html">
           <img class="myband" src="/pets_.png" alt="Card image">
@@ -38,6 +50,28 @@
         <a class=<%= controller_name == "birds" ? "active" : "whatever"%> href="/birds">Bird</a>
         <a class=<%= controller_name == "pages" ? "active" : "whatever"%> href="/pages/about">About</a>
 
+          <%# search_cats_path %>
+          <%# search_dogs_path %>
+          <%# search_birds_path %>
+          <%# '/search' %>
+
+          <%= form_with(url: search_cats_path, method: :get, local: true) do %>
+            <div class="search-div">
+              <%= text_field_tag(:keywords, nil, class: "search-text", placeholder: 'Search For Pets')%>
+              <select name="category" class="search-select">
+                <%#
+                <option value=0>All</option>
+                <option value=1>Cat</option>
+                <option value=2>Dog</option>
+                <option value=3>Bird</option>
+                %>
+                <%= options_for_select(["all" , "cat" , "dog" , "bird"].map(&:capitalize)) %>
+              </select>
+              <%= submit_tag("Search", class: "search-button")%>
+            </div>
+          <% end %>
+
+
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
         </a>
@@ -45,6 +79,7 @@
 
     </div>
   </header>
+
 
   <body>
 
@@ -69,8 +104,8 @@
         <div class="cart-container">
           <a href="<%= cart_index_path %>">
             <img src="/assets/cart.png" alt="cart" style="width:90px;">
-            <% if cart.size != 0%>
-              <div class="cart-text"><%= cart.size %></div>
+            <% if cart[0].size+cart[1].size+cart[2].size != 0%>
+              <div class="cart-text"><%= cart[0].size+cart[1].size+cart[2].size %></div>
             <% end %>
           </a>
         </div>
@@ -78,10 +113,25 @@
         <div class="nav-cart">
           <%#= link_to image_tag("cart.png", width:60), root_path %>
             <table>
-            <% cart.each do |cat| %>
+            <% cart[0].each do |cat| %>
               <tr>
-                <th><%= cat.name %></th>
-                <td><%= link_to 'Remove', cart_path(cat), method: :delete %></td>
+                <%# $animal_type = "cats"%>
+                <th><%= cat.name %>(🐱)</th>
+                <td><%= link_to 'Remove', cart_path(cat), method: :delete, :onclick => "setAnimalType('cats')" %></td>
+              </tr>
+            <% end %>
+            <% cart[1].each do |dog| %>
+              <tr>
+                <%# $animal_type = "dogs"%>
+                <th><%= dog.name %>(🐶)</th>
+                <td><%= link_to 'Remove', cart_path(dog), method: :delete, :onclick => "setAnimalType('dogs')" %></td>
+              </tr>
+            <% end %>
+            <% cart[2].each do |bird| %>
+              <tr>
+                <%# $animal_type = "birds"%>
+                <th><%= bird.name %>(🦜)</th>
+                <td><%= link_to 'Remove', cart_path(bird), method: :delete, :onclick => "setAnimalType('birds')" %></td>
               </tr>
             <% end %>
             </table>
@@ -89,8 +139,6 @@
 
       <% end %>
     <% end %>
-
-
 
     <%= yield %>
 
@@ -113,6 +161,35 @@
           y.className += " topnav-offset";
         } else {
           y.className = "topnav-off";
+        }
+      }
+
+      function setAnimalType(e) {
+        if(e == "cats")
+        {
+          // alert("CATS!");
+          <% $animal_type = "cats" %>
+          console.log("🤩🤩🤩🤩🤩🤩🤩🤩🤩🤩🤩🤩🤩");
+          return true;
+        }
+        else if(e == "dogs")
+        {
+          // alert("DOGS!");
+          <% $animal_type = "dogs" %>;
+          console.log("😎😎😎😎😎😎😎😎😎😎😎😎😎");
+          return true;
+        }
+        else if(e == "birds")
+        {
+          // alert("BIRDS!");
+          <% $animal_type = "birds" %>
+          console.log("😛😛😛😛😛😛😛😛😛😛😛😛😛😛");
+          puts("🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜-");
+          return true;
+        }
+        else
+        {
+          alert("SHIT!");
         }
       }
     </script>

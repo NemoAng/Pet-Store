@@ -18,16 +18,17 @@
     <a class="detail-button-a" href="<%= dog_path(dog) %>" role="button">Details</a>
 
     <% if true %>
-      <% if cart.include?(dog) %>
+      <% if cart[1].include?(dog) %>
         <%= button_to cart_path(dog), :class=>'add-to-remove-from', method: :delete do %>
           Remove From Cart
+          <%# $animal_type = 'dog' %>
         <% end %>
       <% else %>
         <%= form_with  url: cart_index_path, method: :post do %>
           <%#= simple_format dog.to_yaml %>
-
           <%= hidden_field_tag(:id, dog.id) %>
           <%= button_tag 'Add to Cart', :class=>'add-to-remove-from' %>
+          <%# $animal_type = 'dog' %>
         <% end %>
       <% end %>
     <% end %>

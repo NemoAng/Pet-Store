@@ -1,0 +1,41 @@
+<% if false %>
+  <% @cats.each do |cat| %>
+    <div class="card" style="background-color: #<%= SecureRandom.hex(3)%>">
+      <div class="card-content">
+        <p class="title is-size-5">
+          <%= link_to cat.name, cat %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+  <p class="search-result">
+    <%# byebug %>
+    <% if $g_category_search == "%Cat%" %>
+      Found <span class="what-ever2"><%= pluralize(@cats.count, 'Cat') %></span> when searching for "<%= params[:keywords]%>"
+    <% elsif $g_category_search == "%Dog%" %>
+      Found <span class="what-ever2"><%= pluralize(@dogs.count, 'Dog') %></span> when searching for "<%= params[:keywords]%>"
+    <% elsif $g_category_search == "%Bird%" %>
+      Found <span class="what-ever2"><%= pluralize(@birds.count, 'Bird') %></span> when searching for "<%= params[:keywords]%>"
+    <% else %>
+      Found <span class="what-ever2"><%= pluralize(@cats.count, 'Cat') %>;<%= pluralize(@dogs.count, 'Dog') %>;<%= pluralize(@birds.count, 'Bird') %></span> when searching for "<%= params[:keywords]%>"
+    <% end %>
+  </p>
+
+
+<div class="container flex-container">
+  <% $animal_type = controller_name %>
+
+  <% if $g_category_search == "%Cat%" %>
+    <%= render @cats %>
+  <% elsif $g_category_search == "%Dog%" %>
+    <%= render @dogs %>
+  <% elsif $g_category_search == "%Bird%" %>
+    <%= render @birds %>
+  <% else %>
+    <%= render @cats %>
+    <%= render @dogs %>
+    <%= render @birds %>
+  <% end %>
+</div>

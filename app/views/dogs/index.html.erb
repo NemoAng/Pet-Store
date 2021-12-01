@@ -8,7 +8,7 @@
               <h2 class="card-title"><%= dog.name %></h2>
               <img class="card-img-top" src="<%= dog.image_link %>" alt="Card image"">
               <div class="card-body">
-                <h3 class="card-text---">Age： <%= dog.age %></h3>
+                <h3 class="card-text">Age： <%= dog.age %></h3>
                 <h3 class="card-text">Price： <%= number_to_currency(dog.price) %></h3>
                 <h3 class="card-text"><%= dog.description.truncate(57, separator: /\s/) %></h3>
               </div>
@@ -21,6 +21,7 @@
       <% end %>
 
     <div class="container flex-container">
+      <% $animal_type = controller_name %>
       <%= render @dogs %>
     </div>
 

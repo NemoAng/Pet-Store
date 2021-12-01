@@ -1,7 +1,7 @@
 <tbody>
   <% if true %>
     <% $checkout = 0 %>
-    <% cart.each do |cat| %>
+    <% cart[0].each do |cat| %>
       <div class="cart-item-container" style="height:250px">
         <div class="cart-item-img">
           <h3><%= cat.name %></h3>
@@ -9,13 +9,47 @@
         </div>
         <div class="cart-item">
           <h3><%= number_to_currency(cat.price) %></h3>
-
-          <%= button_to cart_path(cat), :class=>'remove-from', method: :delete do %>Remove<% end %>
+          <%= button_to cart_path(cat), :class=>'remove-from', method: :delete do %>
+            Remove
+          <% end %>
+          <% $animal_type = "cats" %>
         </div>
         <% $checkout += cat.price %>
       </div>
     <% end %>
-
+    <% cart[1].each do |dog| %>
+      <div class="cart-item-container" style="height:250px">
+        <div class="cart-item-img">
+          <h3><%= dog.name %></h3>
+          <img class="card-img-top" src="<%= dog.image_link %>" alt="Card image" >
+        </div>
+        <div class="cart-item">
+          <h3><%= number_to_currency(dog.price) %></h3>
+          <%= button_to cart_path(dog), :class=>'remove-from', method: :delete do %>
+            Remove
+          <% end %>
+          <% $animal_type = "dogs" %>
+        </div>
+        <% $checkout += dog.price %>
+      </div>
+    <% end %>
+    <% cart[2].each do |bird| %>
+      <div class="cart-item-container" style="height:250px">
+        <div class="cart-item-img">
+          <h3><%= bird.name %></h3>
+          <img class="card-img-top" src="<%= bird_path(bird).gsub("s/","_") %>.jpg" alt="Card image" >
+        </div>
+        <div class="cart-item">
+          <h3><%= number_to_currency(bird.price) %></h3>
+          <%= button_to cart_path(bird), :class=>'remove-from', method: :delete do %>
+            Remove
+          <% end %>
+          <% $animal_type = "birds" %>
+          <% puts "🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜-" %>
+        </div>
+        <% $checkout += bird.price %>
+      </div>
+    <% end %>
     <div class="checkout">
       <h3>Total: <%= number_to_currency($checkout) %></h3>
     </div>
