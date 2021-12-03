@@ -1,32 +1,48 @@
-    <div class="card card-common" style="width:300px">
-      <h2 class="card-title"><%= cat.name %></h2>
-      <img class="card-img-top" src="<%= cat.image_link %>" alt="Card image">
-      <div class="card-body">
-        <h3 class="card-text">Age： <%= cat.age %></h3>
-        <h3 class="card-text">Price： <%= number_to_currency(cat.price) %></h3>
-        <h3 class="card-text"><%= cat.description.truncate(57, separator: /\s/) %></h3>
-      </div>
-      <div class="detail-button-div">
-        <a class="detail-button-a" href="<%= cat_path(cat) %>" role="button">Details</a>
-        <% if true %>
-          <% if cart[0].include?(cat) %>
-            <%= button_to cart_path(cat), :class=>'add-to-remove-from', method: :delete do %>
-              Remove From Cart
-              <%# $animal_type = 'cat' %>
-            <% end %>
-          <% else %>
-            <%= form_with  url: cart_index_path, method: :post do %>
+<div class="card card-common" style="width:300px">
+  <h2 class="card-title"><%= cat.name %></h2>
 
-              <%= hidden_field_tag(:id, cat.id) %>
-              <%= button_tag 'Add to Cart', :class=>'add-to-remove-from' %>
-              <%# $animal_type = 'cat' %>
-              <%# $animal_type_static = 20000 %>
-            <% end %>
-          <% end %>
+  <% if cat.image.present? %>
+      <div class="card-img-top">
+        <figure class="image">
+          <%= image_tag cat.image %>
+        </figure>
+      </div>
+  <% else %>
+    <img class="card-img-top" src="<%= cat.image_link %>" alt="Card image">
+  <% end %>
+
+  <div class="card-body">
+    <h3 class="card-text">Age： <%= cat.age %></h3>
+    <h3 class="card-text">Price： <%= number_to_currency(cat.price) %></h3>
+    <h3 class="card-text"><%= cat.description.truncate(57, separator: /\s/) %></h3>
+  </div>
+
+  <div>
+    <% if cat.image.present? && false %>
+      <div class="card-img-top">
+        <figure class="image">
+          <%= image_tag cat.image %>
+        </figure>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="detail-button-div">
+    <a class="detail-button-a" href="<%= cat_path(cat) %>" role="button">Details</a>
+    <% if true %>
+      <% if cart[0].include?(cat) %>
+        <%= button_to cart_path(cat), :class=>'add-to-remove-from', method: :delete do %>
+          Remove From Cart
+          <%# $animal_type = 'cat' %>
         <% end %>
-
-      </div>
-    </div>
-
-
-
+      <% else %>
+        <%= form_with  url: cart_index_path, method: :post do %>
+          <%= hidden_field_tag(:id, cat.id) %>
+          <%= button_tag 'Add to Cart', :class=>'add-to-remove-from' %>
+          <%# $animal_type = 'cat' %>
+          <%# $animal_type_static = 20000 %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 class Bird < ApplicationRecord
   # paginates_per 30
-
+  has_one_attached :image
   # for own's FK
   belongs_to :category
 

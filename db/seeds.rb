@@ -38,28 +38,35 @@ end
 #   # run if condition is false
 # end
 
-# for cat
-Cat.delete_all
-CatBreed.delete_all
-Cat.reset_pk_sequence
-
-# for dog
-Dog.delete_all
-DogBreed.delete_all
-Dog.reset_pk_sequence
-
-#  for bird
-Bird.delete_all
-# BirdBreed.delete_all # bird has no breed
-Bird.reset_pk_sequence
-
-# for category
-Category.delete_all
-Category.reset_pk_sequence
+AdminUser.destroy_all
+AdminUser.reset_pk_sequence
 
 # 1_000_001.even?  again
 # 1_000_000.even?  ignore
-unless 1_000_001.even?
+unless 1_000_000.even?
+  # for cat
+  Cat.delete_all
+  CatBreed.delete_all
+  Cat.reset_pk_sequence
+
+  # for dog
+  Dog.delete_all
+  DogBreed.delete_all
+  Dog.reset_pk_sequence
+
+  #  for bird
+  Bird.delete_all
+  # BirdBreed.delete_all # bird has no breed
+  Bird.reset_pk_sequence
+
+  # for category
+  Category.delete_all
+  Category.reset_pk_sequence
+end
+
+# 1_000_001.even?  again
+# 1_000_000.even?  ignore
+unless 1_000_000.even?
   # Cat.delete_all
   # CatBreed.delete_all
   # Cat.reset_pk_sequence
@@ -107,7 +114,7 @@ end
 
 # 1_000_001.even?  again
 # 1_000_000.even?  ignore
-unless 1_000_001.even?
+unless 1_000_000.even?
   # Dog.delete_all
   # DogBreed.delete_all
   # Dog.reset_pk_sequence
@@ -169,7 +176,7 @@ end
 
 # 1_000_001.even?  again
 # 1_000_000.even?  ignore
-unless 1_000_001.even?
+unless 1_000_000.even?
   # Bird.delete_all
   # # BirdBreed.delete_all
   # Bird.reset_pk_sequence
@@ -232,6 +239,11 @@ unless 1_000_001.even?
   end
 end
 
+if Rails.env.development?
+  AdminUser.create!(email: "admin@example.com", password: "password",
+                    password_confirmation: "password")
+end
+
 puts "Created #{CatBreed.count} cat breeds"
 puts "Created #{Cat.count} cats\n"
 
@@ -239,3 +251,5 @@ puts "Created #{DogBreed.count} dog breeds"
 puts "Created #{Dog.count} dogs\n"
 
 puts "Created #{Bird.count} birds"
+
+puts "Created #{AdminUser.count} adminusers."

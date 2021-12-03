@@ -211,10 +211,12 @@ a.active {
   flex-direction: row;
   padding: 0 20px 50px 20px;
 }
+
 .container > .image {
   flex: 1 0 0%;
-  text-align: right; /* and here*/
+  text-align: right;
 }
+
 .image > img {
   vertical-align: top; /* here */
 
@@ -428,4 +430,9 @@ table td a:visited {
 .search-result {
   padding-left: 50px;
   font-size: large;
+}
+
+figure {
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }

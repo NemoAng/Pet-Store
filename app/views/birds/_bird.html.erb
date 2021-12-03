@@ -1,6 +1,16 @@
 <div class="card card-common" style="width:300px">
   <h2 class="card-title"><%= bird.name %></h2>
-  <img class="card-img-top" src="<%= bird_path(bird).gsub("s/","_") %>.jpg" alt="Card image"">
+
+  <% if bird.image.present? %>
+    <div class="card-image">
+      <figure class="image">
+        <%= image_tag bird.image %>
+      </figure>
+    </div>
+  <% else %>
+    <img class="card-img-top" src="<%= bird_path(bird).gsub("s/","_") %>.jpg" alt="Card image"">
+  <% end %>
+
   <div class="card-body">
     <h3 class="card-text">Age： <%= bird.age %></h3>
     <h3 class="card-text">Price： <%= number_to_currency(bird.price) %></h3>
@@ -13,13 +23,21 @@
       <h3 class="card-text">E Adjective: <%= bird.emotional_adjective %></h3>
       <h3 class="card-text">S Adjective: <%= bird.silly_adjective %></h3>
     <% end %>
-
     <h3 class="card-text">Color: <%= bird.color %></h3>
-
   </div>
+
+  <div>
+    <% if bird.image.present? && false %>
+      <div class="card-image">
+        <figure class="image">
+          <%= image_tag bird.image %>
+        </figure>
+      </div>
+    <% end %>
+  </div>
+
   <div class="detail-button-div">
     <a class="detail-button-a" href="<%= bird_path(bird) %>" role="button">Details</a>
-
     <% if true %>
       <% if cart[2].include?(bird) %>
         <%= button_to cart_path(bird), :class=>'add-to-remove-from', method: :delete do %>
@@ -34,6 +52,6 @@
         <% end %>
       <% end %>
     <% end %>
-
   </div>
+
 </div>

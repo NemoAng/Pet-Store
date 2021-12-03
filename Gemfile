@@ -58,6 +58,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #######################
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
+gem 'activeadmin' # Admiin Dashboard as a Rails Engine
+gem 'devise' # Provide username and password authentication libraries
+
 # for reset primary key
 gem 'activerecord-reset-pk-sequence'
 

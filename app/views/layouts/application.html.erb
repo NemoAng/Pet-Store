@@ -34,7 +34,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <% if false %>
-     <script src="https://js.stripe.com/v3">
+     <script src="https://js.stripe.com/v3"></script>
     <% end %>
 
   </head>
@@ -49,7 +49,9 @@
         <a class=<%= controller_name == "dogs" ? "active" : "whatever"%> href="/dogs">Dog</a>
         <a class=<%= controller_name == "birds" ? "active" : "whatever"%> href="/birds">Bird</a>
         <a class=<%= controller_name == "pages" ? "active" : "whatever"%> href="/pages/about">About</a>
+        <a href="admin/login">Admin</a>
 
+          <%# new_admin_user_session %>
           <%# search_cats_path %>
           <%# search_dogs_path %>
           <%# search_birds_path %>

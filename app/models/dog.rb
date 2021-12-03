@@ -1,6 +1,6 @@
 class Dog < ApplicationRecord
   # paginates_per 30
-
+  has_one_attached :image
   # for own's FK
   belongs_to :dog_breed
   # belongs_to :category
