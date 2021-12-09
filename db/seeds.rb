@@ -240,8 +240,11 @@ unless 1_000_000.even?
 end
 
 if Rails.env.development?
-  AdminUser.create!(email: "admin@example.com", password: "password",
-                    password_confirmation: "password")
+  AdminUser.create!(email: "admin1@example.com", password: "nemonemo",
+                    password_confirmation: "nemonemo")
+
+  AdminUser.create!(email: "nemo@nemo.com", password: "nemonemo",
+                    password_confirmation: "nemonemo")
 end
 
 puts "Created #{CatBreed.count} cat breeds"

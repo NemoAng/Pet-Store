@@ -48,7 +48,7 @@
         <a class=<%= controller_name == "cats" ? "active" : "whatever"%> href="/cats">Cat</a>
         <a class=<%= controller_name == "dogs" ? "active" : "whatever"%> href="/dogs">Dog</a>
         <a class=<%= controller_name == "birds" ? "active" : "whatever"%> href="/birds">Bird</a>
-        <a class=<%= controller_name == "pages" ? "active" : "whatever"%> href="/pages/about">About</a>
+
         <a href="admin/login">Admin</a>
 
           <%# new_admin_user_session %>
@@ -146,6 +146,11 @@
 
     <div class="footer">
       ©<%=Time.new.year %> Red River College Polytechnic
+
+      <div class="contact_about">
+        <a class="contact_about_1" href="/pages/about">About</a>
+        <a class="contact_about_2" href="/pages/contact" >Contact</a>
+      </div>
     </div>
 
     <script>

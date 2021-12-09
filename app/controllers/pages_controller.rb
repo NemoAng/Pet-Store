@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   before_action :set_page, only: %i[show edit update destroy]
 
-  http_basic_authenticate_with name: "nemo", password: "nemowang2", except: [:show]
+  http_basic_authenticate_with name: "nemo", password: "nemo", except: [:show]
 
   # GET /pages or /pages.json
   def index
@@ -31,7 +31,9 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
-        format.html { redirect_to permalink_path(@page.permalink), notice: "Page was successfully created." }
+        format.html do
+          redirect_to permalink_path(@page.permalink), notice: "Page was successfully created."
+        end
         format.json { render :show, status: :created, location: permalink_path(@page.permalink) }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +46,9 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update(page_params)
-        format.html { redirect_to permalink_path(@page.permalink), notice: "Page was successfully updated." }
+        format.html do
+          redirect_to permalink_path(@page.permalink), notice: "Page was successfully updated."
+        end
         format.json { render :show, status: :ok, location: permalink_path(@page.permalink) }
       else
         format.html { render :edit, status: :unprocessable_entity }

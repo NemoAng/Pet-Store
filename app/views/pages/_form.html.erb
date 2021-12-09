@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field mx-5">
+  <div class="field mx-5 edit-permalink">
     <%= form.label :title, class:'label'%>
     <%= form.text_field :title, class:"input is-success", type:"text" %>
   </div>
 
-  <div class="field mx-5">
+  <div class="field mx-5 edit-permalink">
     <%= form.label :content, class:'label' %>
     <%= form.text_area :content, class:"input is-success", type:"text" %>
   </div>
 
-  <div class="field mx-5">
+  <div class="field mx-5 edit-permalink">
     <%= form.label :permalink, class:'label' %>
-    <%= form.text_field :permalink, class:"input is-success", type:"text" %>
+    <%= form.text_field :permalink, class:"input is-success ", type:"text", rows:10 %>
   </div>
 
   <div class="actions mr-5 buttons has-addons is-right">

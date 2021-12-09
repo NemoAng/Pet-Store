@@ -436,3 +436,16 @@ figure {
   margin-inline-start: 0;
   margin-inline-end: 0;
 }
+
+.edit-permalink input {
+  width: 100%;
+}
+
+.edit-permalink textarea {
+  width: 100%;
+}
+
+.contact_about {
+  display: block;
+  float: right;
+}
