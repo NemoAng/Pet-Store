@@ -76,3 +76,5 @@ gem 'solargraph'
 gem  'permalink'
 
 gem 'image_processing'
+
+gem 'devise'
