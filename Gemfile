@@ -77,4 +77,4 @@ gem  'permalink'
 
 gem 'image_processing'
 
-gem 'devise'
+# gem 'devise'
