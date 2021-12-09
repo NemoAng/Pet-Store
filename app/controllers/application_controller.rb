@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   # @@animal_type_static = 0
   $g_category_search = nil
 
+  $contact_page_g = false
+
   def cms_pages
     Page.all
   end

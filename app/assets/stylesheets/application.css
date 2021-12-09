@@ -437,6 +437,10 @@ figure {
   margin-inline-end: 0;
 }
 
+.permalink-pages {
+  margin: 20px 30px;
+}
+
 .edit-permalink input {
   width: 100%;
 }
@@ -448,4 +452,9 @@ figure {
 .contact_about {
   display: block;
   float: right;
+  margin: 0 15px;
+}
+
+.pages-table {
+  width: 100%;
 }

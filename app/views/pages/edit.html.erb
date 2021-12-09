@@ -1,6 +1,9 @@
-<h1>Editing Page</h1>
+<div class="permalink-pages" >
+  <h1>Editing Page</h1>
+  <%= render 'form', page: @page %>
+  <%= link_to 'Show', @page %> |
+  <%= link_to 'Back', pages_path %>
 
-<%= render 'form', page: @page %>
+</div>
 
-<%= link_to 'Show', @page %> |
-<%= link_to 'Back', pages_path %>
+

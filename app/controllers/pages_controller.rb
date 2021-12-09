@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   # GET /pages or /pages.json
   def index
     @pages = Page.all
+
   end
 
   # GET /pages/1 or /pages/1.json
@@ -14,7 +15,7 @@ class PagesController < ApplicationController
   def permalink
     @page = Page.find_by(permalink: params[:permalink])
 
-    # console
+    console
   end
 
   # GET /pages/new

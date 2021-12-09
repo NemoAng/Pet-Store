@@ -49,6 +49,7 @@
         <a class=<%= controller_name == "dogs" ? "active" : "whatever"%> href="/dogs">Dog</a>
         <a class=<%= controller_name == "birds" ? "active" : "whatever"%> href="/birds">Bird</a>
 
+        <a class=<%= (controller_name == "pages") && ($contact_page_g == false)? "active" : "whatever"%> href="<%= permalink_path(cms_pages[0].permalink)%>" onclick="<% $contact_page_g = false %>">About</a>
         <a href="admin/login">Admin</a>
 
           <%# new_admin_user_session %>
@@ -146,11 +147,15 @@
 
     <div class="footer">
       ©<%=Time.new.year %> Red River College Polytechnic
-
       <div class="contact_about">
-        <a class="contact_about_1" href="/pages/about">About</a>
-        <a class="contact_about_2" href="/pages/contact" >Contact</a>
+        <%# cms_pages.each_with_index do |page, index| %>
+        <%#= link_to (index == 0) ? "About" : "Contact", permalink_path(page.permalink) %>
+        <%# end %>
+        <% $contact_page_g = true %>
+        <%= link_to "Contact", permalink_path(cms_pages[1].permalink) %>
       </div>
+    </div>
+
     </div>
 
     <script>

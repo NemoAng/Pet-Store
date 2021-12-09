@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <div>
   <% if false %>
@@ -19,9 +18,11 @@
 
 </div>
 
-<div class="columns">
-  <div class="column is-full is-12"><%= @page.title %></div>
-</div>
+<% if false %>
+  <div class="columns">
+    <div class="column is-full is-12"><%= @page.title %></div>
+  </div>
+<% end %>
 
 <div class="is-size-4 px-6 py-6">
   <% if false %>
@@ -32,6 +33,6 @@
     <% console %>
   <% end %>
 
-  <%= link_to 'Edit', edit_page_path(@page) %> |
-  <%= link_to 'Back', pages_path %>
+  <%#= link_to 'Edit', edit_page_path(@page) %> |
+  <%#= link_to 'Back', pages_path %>
 </div>
