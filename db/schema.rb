@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_022403) do
+ActiveRecord::Schema.define(version: 2021_12_09_202258) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -147,6 +147,14 @@ ActiveRecord::Schema.define(version: 2021_12_02_022403) do
     t.string "title"
     t.text "content"
     t.string "permalink"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "password"
+    t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
