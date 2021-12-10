@@ -28,10 +28,16 @@ $padding-tb: 16px;
 .new_user input:not([type="checkbox"]) {
   font-size: larger;
   font-weight: bolder;
-  width: 100%;
+  width: $user-form-width;
   padding: $padding-tb $padding-lr;
   border-radius: $padding-lr;
+  box-sizing: border-box;
 }
+
+// .new_user input[type="submit"] {
+//   background-color: red;
+//   margin: 0;
+// }
 
 .sign-up,
 .forgot-pass {
