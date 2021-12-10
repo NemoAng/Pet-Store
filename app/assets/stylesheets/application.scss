@@ -1,0 +1,17 @@
+$margin: 16px;
+$padding-lr: 8px;
+$padding-tb: 16px;
+
+.login-div {
+  display: flex;
+  justify-content: flex-end;
+  font-size: x-large;
+  margin: 15px;
+}
+.login-div a {
+  text-decoration: none;
+  background-color: #333;
+  color: white;
+  border-radius: $margin * 2;
+  padding: $padding-tb $padding-lr;
+}

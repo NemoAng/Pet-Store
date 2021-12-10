@@ -1,0 +1,46 @@
+$primary-color: #333;
+$secondary-color: lighten($primary-color, 30%);
+$darken-color: darken($primary-color, 30%);
+
+$margin: 16px;
+$padding-form: 32px;
+$form-border-radius: 8px;
+$user-form-width: 500px;
+
+$padding-lr: 8px;
+$padding-tb: 16px;
+
+.new_user {
+  background-color: $secondary-color;
+  width: $user-form-width;
+  border-radius: $form-border-radius;
+  padding: $padding-form;
+  display: table;
+  margin: $padding-form auto;
+}
+
+.new_user label {
+  font-size: larger;
+  font-weight: bolder;
+  color: $darken-color;
+}
+
+.new_user input:not([type="checkbox"]) {
+  font-size: larger;
+  font-weight: bolder;
+  width: 100%;
+  padding: $padding-tb $padding-lr;
+  border-radius: $padding-lr;
+}
+
+.sign-up,
+.forgot-pass {
+  font-size: larger;
+  font-weight: bolder;
+  margin: $margin;
+}
+
+.sign-up a,
+.forgot-pass a {
+  text-decoration: none;
+}

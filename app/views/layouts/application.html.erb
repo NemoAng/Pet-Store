@@ -9,7 +9,6 @@
 # Category:
 # -> id
 # -> name
-
 <% end %>
 
 <html>
@@ -21,7 +20,6 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -73,17 +71,25 @@
               <%= submit_tag("Search", class: "search-button")%>
             </div>
           <% end %>
-
-
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
         </a>
       </div>
-      
+    </div>
 
+    <div>
+      <% if controller_name != "sessions" %>
+        <div class="login-div">
+          <% if user_signed_in? %>
+            <p><%= current_user['email']%></p>
+          <% else %>
+            <a href="<%= user_session_path %>">Log in</a>
+          <% end %>
+
+        </div>
+      <% end %>
     </div>
   </header>
-
 
   <body>
 
@@ -104,7 +110,7 @@
     <% end %>
 
     <% if true %>
-      <% if controller_name != 'pages'%>
+      <% if (controller_name == 'cats' || controller_name == 'dogs' || controller_name == 'birds') && (cart[0].size+cart[1].size+cart[2].size != 0)%>
         <div class="cart-container">
           <a href="<%= cart_index_path %>">
             <img src="/assets/cart.png" alt="cart" style="width:90px;">
@@ -140,7 +146,6 @@
             <% end %>
             </table>
         </div>
-
       <% end %>
     <% end %>
 
@@ -155,8 +160,6 @@
         <% $contact_page_g = true %>
         <%= link_to "Contact", permalink_path(cms_pages[1].permalink) %>
       </div>
-    </div>
-
     </div>
 
     <script>
@@ -202,7 +205,7 @@
         }
         else
         {
-          alert("SHIT!");
+          alert("sstt!");
         }
       }
     </script>
