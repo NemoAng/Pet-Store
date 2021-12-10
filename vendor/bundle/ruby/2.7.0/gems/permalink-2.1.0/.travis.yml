@@ -1,0 +1,7 @@
+cache: bundler
+sudo: false
+rvm:
+  - "2.7.1"
+  - "2.6.5"
+notifications:
+  email: false
