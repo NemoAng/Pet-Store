@@ -46,6 +46,7 @@
         <%= form_with  url: cart_index_path, method: :post do %>
           <%#= simple_format dog.to_yaml %>
           <%#= hidden_field_tag(:id, dog.id) %>
+          <%#= hidden_field_tag :dog_id, dog.id, {:id => ['dog_id',dog.id].join("_") %>
           <%= button_tag 'Add to Cart', :class=>'add-to-remove-from' %>
           <%# $animal_type = 'dog' %>
         <% end %>

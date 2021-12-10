@@ -25,6 +25,7 @@
           <% else %>
             <%= form_with  url: cart_index_path, method: :post do %>
               <%#= hidden_field_tag(:id, @dog.id) %>
+              <%#= hidden_field_tag :dog_id, dog.id, {:id => ['dog_id',dog.id].join("_") %>
               <%= button_tag 'Add to Cart', :class=>'add-to-remove-from add2remove-details' %>
             <% end %>
           <% end %>

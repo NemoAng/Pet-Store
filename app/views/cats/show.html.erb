@@ -20,6 +20,7 @@
           <% else %>
             <%= form_with  url: cart_index_path, method: :post do %>
               <%#= hidden_field_tag(:id, @cat.id) %>
+              <%#= hidden_field_tag :cat_id, cat.id, {:id => ['cat_id',cat.id].join("_") %>
               <%= button_tag 'Add to Cart', :class=>'add-to-remove-from add2remove-details' %>
             <% end %>
           <% end %>
