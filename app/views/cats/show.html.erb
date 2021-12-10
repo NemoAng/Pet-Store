@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="image">
-    <img src="<%= @cat.image_link %>" alt="cat" width="500px" height="600px">
+    <img src="<%= @cat.image_link %>" alt="cat" width="500" height="600" />
   </div>
   <div class="text">
       <h2>Name:<%= @cat.name %></h2>
@@ -19,19 +19,14 @@
             <% end %>
           <% else %>
             <%= form_with  url: cart_index_path, method: :post do %>
-              <%= hidden_field_tag(:id, @cat.id) %>
+              <%#= hidden_field_tag(:id, @cat.id) %>
               <%= button_tag 'Add to Cart', :class=>'add-to-remove-from add2remove-details' %>
             <% end %>
           <% end %>
         <% end %>
       </div>
-
-
   </div>
 </div>
-
-
-
 
 
 <%= link_to 'Back', cats_path %>

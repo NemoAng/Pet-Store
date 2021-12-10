@@ -4,11 +4,11 @@
   <% if bird.image.present? %>
     <div class="card-image">
       <figure class="image">
-        <%= image_tag bird.image %>
+        <%= image_tag(bird.image,alt: "bird image")%>
       </figure>
     </div>
   <% else %>
-    <img class="card-img-top" src="<%= bird_path(bird).gsub("s/","_") %>.jpg" alt="Card image"">
+    <img class="card-img-top" src="<%= bird_path(bird).gsub("s/","_") %>.jpg" alt="Card image" />
   <% end %>
 
   <div class="card-body">
@@ -30,7 +30,7 @@
     <% if bird.image.present? && false %>
       <div class="card-image">
         <figure class="image">
-          <%= image_tag bird.image %>
+          <%= image_tag(bird.image,alt: "bird image") %>
         </figure>
       </div>
     <% end %>
@@ -46,7 +46,7 @@
         <% end %>
       <% else %>
         <%= form_with  url: cart_index_path, method: :post do %>
-          <%= hidden_field_tag(:id, bird.id) %>
+          <%#= hidden_field_tag(:id, bird.id) %>
           <%= button_tag 'Add to Cart', :class=>'add-to-remove-from' %>
           <%# $animal_type = 'bird' %>
         <% end %>

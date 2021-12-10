@@ -1,11 +1,11 @@
-<tbody>
+
   <% if true %>
     <% $checkout = 0 %>
     <% cart[0].each do |cat| %>
       <div class="cart-item-container" style="height:250px">
         <div class="cart-item-img">
           <h3><%= cat.name %></h3>
-          <img class="card-img-top" src="<%= cat.image_link %>" alt="Card image" >
+          <img class="card-img-top" src="<%= cat.image_link %>" alt="Card image" />
         </div>
         <div class="cart-item">
           <h3><%= number_to_currency(cat.price) %></h3>
@@ -21,7 +21,7 @@
       <div class="cart-item-container" style="height:250px">
         <div class="cart-item-img">
           <h3><%= dog.name %></h3>
-          <img class="card-img-top" src="<%= dog.image_link %>" alt="Card image" >
+          <img class="card-img-top" src="<%= dog.image_link %>" alt="Card image" />
         </div>
         <div class="cart-item">
           <h3><%= number_to_currency(dog.price) %></h3>
@@ -37,7 +37,7 @@
       <div class="cart-item-container" style="height:250px">
         <div class="cart-item-img">
           <h3><%= bird.name %></h3>
-          <img class="card-img-top" src="<%= bird_path(bird).gsub("s/","_") %>.jpg" alt="Card image" >
+          <img class="card-img-top" src="<%= bird_path(bird).gsub("s/","_") %>.jpg" alt="Card image" />
         </div>
         <div class="cart-item">
           <h3><%= number_to_currency(bird.price) %></h3>
@@ -58,4 +58,4 @@
     </div>
 
   <% end %>
-</tbody>
+

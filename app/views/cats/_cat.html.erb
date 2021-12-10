@@ -4,11 +4,11 @@
   <% if cat.image.present? %>
       <div class="card-img-top">
         <figure class="image">
-          <%= image_tag cat.image %>
+          <%= image_tag(cat.image,alt: "cat image") %>
         </figure>
       </div>
   <% else %>
-    <img class="card-img-top" src="<%= cat.image_link %>" alt="Card image">
+    <img class="card-img-top" src="<%= cat.image_link %>" alt="Card image" />
   <% end %>
 
   <div class="card-body">
@@ -21,7 +21,7 @@
     <% if cat.image.present? && false %>
       <div class="card-img-top">
         <figure class="image">
-          <%= image_tag cat.image %>
+          <%= image_tag(cat.image,alt: "cat image") %>
         </figure>
       </div>
     <% end %>
@@ -37,7 +37,7 @@
         <% end %>
       <% else %>
         <%= form_with  url: cart_index_path, method: :post do %>
-          <%= hidden_field_tag(:id, cat.id) %>
+          <%#= hidden_field_tag(:id, cat.id) %>
           <%= button_tag 'Add to Cart', :class=>'add-to-remove-from' %>
           <%# $animal_type = 'cat' %>
           <%# $animal_type_static = 20000 %>

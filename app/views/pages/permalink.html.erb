@@ -1,5 +1,17 @@
 
 <div>
+  <div class="login-div">
+    <% if user_signed_in? %>
+      <p><%= current_user['email'].truncate(50, separator: /\s/) %></p>
+      <%= link_to_if(current_user.nil?, "Login", sign_in_path, class: 'btn btn-primary m-5') do
+          link_to(image_tag("/assets/logout.png", style: "width:35px;", alt: "logout image"),  destroy_user_session_path, :method => 'delete', class: 'logout-a')
+        end
+      %>
+    <% else %>
+      <a href="<%= user_session_path %>" class="login-a">Log in</a>
+    <% end %>
+  </div>
+
   <% if false %>
     <strong class="title ml-5 py-5">Title:</strong>
   <% end %>

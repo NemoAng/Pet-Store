@@ -21,7 +21,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <% if false %>
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -37,18 +37,18 @@
 
   </head>
 
-  <header>
+  <body>
    <div class="topnav" id="myTopnav">
       <div class="topnav-off" id="myOffset">
         <a href="/welcome.html">
-          <img class="myband" src="/pets_.png" alt="Card image">
+          <img class="myband" src="/pets_.png" alt="Card image" />
         </a>
-        <a class=<%= controller_name == "cats" ? "active" : "whatever"%> href="/cats">Cat</a>
-        <a class=<%= controller_name == "dogs" ? "active" : "whatever"%> href="/dogs">Dog</a>
-        <a class=<%= controller_name == "birds" ? "active" : "whatever"%> href="/birds">Bird</a>
+        <a class="<%= controller_name == "cats" ? "active" : "whatever"%>" href="/cats">Cat</a>
+        <a class="<%= controller_name == "dogs" ? "active" : "whatever"%>" href="/dogs">Dog</a>
+        <a class="<%= controller_name == "birds" ? "active" : "whatever"%>" href="/birds">Bird</a>
 
-        <a class=<%= (controller_name == "pages") && ($contact_page_g == false)? "active" : "whatever"%> href="<%= permalink_path(cms_pages[0].permalink)%>" onclick="<% $contact_page_g = false %>">About</a>
-        <a href="admin/login">Admin</a>
+        <a class="<%= (controller_name == "pages") && ($contact_page_g == false)? "active" : "whatever"%>" href="<%= permalink_path(cms_pages[0].permalink)%>" onclick="<% $contact_page_g = false %>">About</a>
+        <a href="<%= admin_user_session_path %>">Admin</a>
 
           <%# new_admin_user_session %>
           <%# search_cats_path %>
@@ -77,22 +77,6 @@
       </div>
     </div>
 
-    <div>
-      <% if controller_name != "sessions" %>
-        <div class="login-div">
-          <% if user_signed_in? %>
-            <p><%= current_user['email']%></p>
-          <% else %>
-            <a href="<%= user_session_path %>">Log in</a>
-          <% end %>
-
-        </div>
-      <% end %>
-    </div>
-  </header>
-
-  <body>
-
     <% if false %>
       <% cms_pages.each do |page| %>
         <li><%= link_to page.title, permalink_path(page.permalink) %></li>
@@ -113,7 +97,7 @@
       <% if (controller_name == 'cats' || controller_name == 'dogs' || controller_name == 'birds') && (cart[0].size+cart[1].size+cart[2].size != 0)%>
         <div class="cart-container">
           <a href="<%= cart_index_path %>">
-            <img src="/assets/cart.png" alt="cart" style="width:90px;">
+            <img src="/assets/cart.png" alt="cart" style="width:90px;" />
             <% if cart[0].size+cart[1].size+cart[2].size != 0%>
               <div class="cart-text"><%= cart[0].size+cart[1].size+cart[2].size %></div>
             <% end %>

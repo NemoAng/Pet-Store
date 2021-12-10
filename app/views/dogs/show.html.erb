@@ -1,6 +1,6 @@
 <div class="container">
   <div class="image">
-    <img src="<%= @dog.image_link %>" alt="dog" width="500px" height="600px">
+    <img src="<%= @dog.image_link %>" alt="dog" width="500" height="600" />
   </div>
   <div class="text">
       <h2>Name:<%= @dog.name %></h2>
@@ -24,7 +24,7 @@
             <% end %>
           <% else %>
             <%= form_with  url: cart_index_path, method: :post do %>
-              <%= hidden_field_tag(:id, @dog.id) %>
+              <%#= hidden_field_tag(:id, @dog.id) %>
               <%= button_tag 'Add to Cart', :class=>'add-to-remove-from add2remove-details' %>
             <% end %>
           <% end %>

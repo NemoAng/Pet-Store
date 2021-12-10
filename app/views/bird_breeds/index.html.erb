@@ -11,7 +11,7 @@
     </tr>
   </thead>
 
-  <tbody>
+
     <% @bird_breeds.each do |bird_breed| %>
       <tr>
         <td><%= bird_breed.name %></td>
@@ -21,7 +21,7 @@
         <td><%= link_to 'Destroy', bird_breed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
+  
 </table>
 
 <br>

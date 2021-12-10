@@ -459,4 +459,30 @@ figure {
   width: 100%;
 }
 
+.login-div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: x-large;
+  margin: 15px;
+}
 
+.login-div p {
+  font-size: large;
+  margin-right: 10px;
+}
+
+.login-div a {
+  color: white;
+}
+
+.login-a {
+  text-decoration: none;
+  background-color: #333;
+  border-radius: 32px;
+  padding: 12px 8px;
+}
+
+.logout-a:hover {
+  background-color: white;
+}

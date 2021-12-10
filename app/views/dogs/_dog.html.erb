@@ -4,11 +4,11 @@
   <% if dog.image.present? %>
     <div class="card-image">
       <figure class="image">
-        <%= image_tag dog.image %>
+        <%= image_tag(dog.image,alt: "dog image") %>
       </figure>
     </div>
   <% else %>
-    <img class="card-img-top" src="<%= dog.image_link %>" alt="Card image">
+    <img class="card-img-top" src="<%= dog.image_link %>" alt="Card image" />
   <% end %>
 
   <div class="card-body">
@@ -27,7 +27,7 @@
     <% if dog.image.present? && false %>
       <div class="card-image">
         <figure class="image">
-          <%= image_tag dog.image %>
+          <%= image_tag(dog.image,alt: "dog image") %>
         </figure>
       </div>
     <% end %>
@@ -45,7 +45,7 @@
       <% else %>
         <%= form_with  url: cart_index_path, method: :post do %>
           <%#= simple_format dog.to_yaml %>
-          <%= hidden_field_tag(:id, dog.id) %>
+          <%#= hidden_field_tag(:id, dog.id) %>
           <%= button_tag 'Add to Cart', :class=>'add-to-remove-from' %>
           <%# $animal_type = 'dog' %>
         <% end %>

@@ -1,4 +1,16 @@
-<tbody>
+
+  <div class="login-div">
+    <% if user_signed_in? %>
+      <p><%= current_user['email'].truncate(50, separator: /\s/) %></p>
+      <%= link_to_if(current_user.nil?, "Login", sign_in_path, class: 'btn btn-primary m-5') do
+          link_to(image_tag("/assets/logout.png", style: "width:35px;", alt: "logout png"),  destroy_user_session_path, :method => 'delete', class: 'logout-a')
+        end
+      %>
+    <% else %>
+      <a href="<%= user_session_path %>" class="login-a">Log in</a>
+    <% end %>
+  </div>
+
   <%=paginate @birds, window: 2, outer_window: 3, clsss:'has-text-black' %>
 
   <% if false %>
@@ -6,7 +18,7 @@
         <% @birds.each_with_index do |bird, index| %>
           <div class="card" style="width:300px">
             <h2 class="card-title"><%= bird.name %></h2>
-            <img class="card-img-top" src="/bird_<%= index %>.jpg" alt="Card image"">
+            <img class="card-img-top" src="/bird_<%= index %>.jpg" alt="Card image" />
             <div class="card-body">
               <h3 class="card-text">Age： <%= bird.age %></h3>
               <h3 class="card-text">Price： <%= number_to_currency(bird.price) %></h3>
@@ -37,4 +49,4 @@
     <%= render @birds %>
   </div>
 
-</tbody>
+
