@@ -1,10 +1,6 @@
 ## This is the ruby on rails full-stack screenshot. I open this repository for helping me to get a job(Actually, nearly all of my public repositories are just for me to get a job. There is only one, I hope I can encounter some ambitious guys to...).
 
-### I hope any guys in Canada, if your company have some open position suitable for me. Please let me know. I will be appreciated.
-
 ![Code_63Hb7oMp6H](https://user-images.githubusercontent.com/50488475/153267860-283111a8-5d05-4af2-a68d-11d407fe6f4e.png)
-
-
 
 
 ## This is another project screenshot based on MERN( MongoDB, Express, React, Node). Not all of the code belongs to me. So, I can't share the source code.
@@ -24,3 +20,5 @@
 ![Venue](https://user-images.githubusercontent.com/50488475/166999697-c5d05bbb-fdcf-48c3-a33c-3cde9c991a06.png)
 
 ![MongoDBCompass_VvaTrQQ8H0](https://user-images.githubusercontent.com/50488475/166999787-26e06812-2ef2-4186-a021-ebb5d8d64e09.png)
+
+## I hope any guys in Canada have change reviewing my repositories, if your company have some open position suitable for me. Please let me know. I will be appreciated.</font>
