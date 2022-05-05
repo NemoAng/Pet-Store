@@ -5,7 +5,7 @@
 
 
 
-## This is another project screenshot based on MERN( MongoDB, Express, React, Node). Not all of the code belongs to me. So, I can't share.
+## This is another project screenshot based on MERN( MongoDB, Express, React, Node). Not all of the code belongs to me. So, I can't share the source code.
 
 ![Code_3Q10ekHe5W](https://user-images.githubusercontent.com/50488475/153281506-1ebbc456-66da-4cc5-8123-9b847d5808e2.png)
 
