@@ -1,4 +1,4 @@
-## This is the ruby on rails full-stack screenshot. I open this repository for helping me to get a job(Actually, nearly all of my public repositories are just for me to get a job. There is only one, I hope I can encounter some ambitious guys to...).
+## This is the ruby on rails full-stack screenshot. I open this repository for helping me to get a job(Actually, nearly all of my public repositories are intended to share with recuriters. There is only one, I hope I can encounter some ambitious guys to...).
 
 ![Code_63Hb7oMp6H](https://user-images.githubusercontent.com/50488475/153267860-283111a8-5d05-4af2-a68d-11d407fe6f4e.png)
 
