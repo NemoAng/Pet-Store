@@ -21,4 +21,4 @@
 
 ![MongoDBCompass_VvaTrQQ8H0](https://user-images.githubusercontent.com/50488475/166999787-26e06812-2ef2-4186-a021-ebb5d8d64e09.png)
 
-## I hope any guys in Canada have change reviewing my repositories, if your company have some open position suitable for me. Please let me know. I will be appreciated.</font>
+## I hope any guys in Canada have chance reviewing my repositories, if your company have some open position suitable for me. Please let me know. I will be appreciated.</font>
