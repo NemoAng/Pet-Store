@@ -21,7 +21,7 @@
 
 ![MongoDBCompass_VvaTrQQ8H0](https://user-images.githubusercontent.com/50488475/166999787-26e06812-2ef2-4186-a021-ebb5d8d64e09.png)
 
-## some of my interview test solutions
+## Some of my interview test solutions
 
 ![Varian](https://user-images.githubusercontent.com/50488475/168159608-e88bac6f-2cf8-43c2-bd24-ac29c8ac5180.png)
 
