@@ -21,6 +21,19 @@
 
 ![MongoDBCompass_VvaTrQQ8H0](https://user-images.githubusercontent.com/50488475/166999787-26e06812-2ef2-4186-a021-ebb5d8d64e09.png)
 
+## Some WinForm Design
+![00](https://user-images.githubusercontent.com/50488475/171102184-117d9421-0fb7-4915-9219-6e153e3b250e.png)
+
+![11](https://user-images.githubusercontent.com/50488475/171102215-859c1b8f-0150-4c6f-94ce-20c9559e8499.png)
+
+![22](https://user-images.githubusercontent.com/50488475/171102225-ca7e6dd1-8ff2-45ff-ab58-c959c4480fb4.png)
+
+![33](https://user-images.githubusercontent.com/50488475/171102239-cec27c8f-b089-48a2-b34e-dcbf308cd937.png)
+
+![BunifuTry_ZR71sibNTg](https://user-images.githubusercontent.com/50488475/171102271-6df16881-5b4f-457b-a3f4-a07c6c9af366.png)
+
+![BunifuTry_s9QvpYGSMI](https://user-images.githubusercontent.com/50488475/171102295-f25fabd5-0b5e-46fd-8f7f-e9c605f38d85.png)
+
 ## Some of my interview test solutions
 
 ![Varian](https://user-images.githubusercontent.com/50488475/168159608-e88bac6f-2cf8-43c2-bd24-ac29c8ac5180.png)
